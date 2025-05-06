@@ -36,15 +36,21 @@ func _physics_process(delta: float) -> void:
 			cohesion += neighbor.global_position # move towards group centre
 			# seperation - move away if too close
 			if distance < seperation_distance:
-				seperation -= offset.normalized() / distance
+				if seperation.length() > 0: # make sure we're not normalizing a zero vector
+					seperation -= offset.normalized() / distance
+				else: print("Seperation vector length is 0 or less")
 			# increase neighbor count
 			neighborCount += 1
 	
 	if neighborCount > 0: # check this fish actually has neighbors
 		# calc average alignment direction of the crowd by averaging the velocity
-		alignment = (alignment/neighborCount).normalized()
+		if alignment.length() > 0: # make sure we're not normalizing a zero vector
+			alignment = (alignment/neighborCount).normalized()
+		else: print("Alignment vector length is 0 or less")
 		# steer towards the average pos of crowd 
-		cohesion = ((cohesion / neighborCount) - global_position).normalized()
+		if cohesion.length() > 0: # make sure we're not normalizing a zero vector
+			cohesion = ((cohesion / neighborCount) - global_position).normalized()
+		else: print("Cohesion vector length is 0 or less")
 		# seperation calced above
 		
 		# combine behaviours into direction vector
@@ -54,9 +60,14 @@ func _physics_process(delta: float) -> void:
 		
 		#lerp towards the new dir
 		velocity = velocity.lerp(direction * speed, 0.1) # weight low to keep smooth movement hopefully
-		
-		pass
+	
+	# limit length of velocity to our speed variable
+	velocity = velocity.limit_length(speed)
+	move_and_slide() # how we shmove
+	
+	# rotate fish here
 
+# gets neighbors from boidManager
 func get_neighbors() -> Array:
 	var current = get_parent()
 	if current != null:
