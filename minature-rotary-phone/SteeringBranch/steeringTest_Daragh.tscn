@@ -20,6 +20,7 @@ mesh = SubResource("SphereMesh_yv7un")
 shape = SubResource("SphereShape3D_rld20")
 
 [node name="Fish2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 0, 2.01661)
 script = ExtResource("1_u2k7x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
@@ -29,6 +30,7 @@ mesh = SubResource("SphereMesh_yv7un")
 shape = SubResource("SphereShape3D_rld20")
 
 [node name="Fish3" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0, -1.60142)
 script = ExtResource("1_u2k7x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
@@ -38,6 +40,7 @@ mesh = SubResource("SphereMesh_yv7un")
 shape = SubResource("SphereShape3D_rld20")
 
 [node name="Fish4" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9573, 0, 1.83867)
 script = ExtResource("1_u2k7x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
@@ -47,6 +50,7 @@ mesh = SubResource("SphereMesh_yv7un")
 shape = SubResource("SphereShape3D_rld20")
 
 [node name="Fish5" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, 0, -1.18624)
 script = ExtResource("1_u2k7x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
@@ -56,6 +60,7 @@ mesh = SubResource("SphereMesh_yv7un")
 shape = SubResource("SphereShape3D_rld20")
 
 [node name="Fish6" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 0, -0.118623)
 script = ExtResource("1_u2k7x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
@@ -63,3 +68,8 @@ mesh = SubResource("SphereMesh_yv7un")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish6"]
 shape = SubResource("SphereShape3D_rld20")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.369747, -0.464566, 0.804652, 0, 0.866025, 0.5, -0.929133, -0.184873, 0.32021, 16.9304, 7.99669, 5.0431)
+current = true
+fov = 78.4

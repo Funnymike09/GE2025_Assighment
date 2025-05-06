@@ -3,15 +3,13 @@ extends CharacterBody3D
 # Tweakable behaviour variables
 @export var speed: = 5.0 # base speed
 @export var vision_radius: = 10.0 # fish viewing distance
-@export var seperation_distance : = 2.0 # distance to keep between fish
+@export var seperation_distance : = 6.0 # distance to keep between fish
 
 #BOID variables - can change these to affect how they prioritise each behavior
 @export var alignment_weight: = 1.0
 @export var cohesion_weight: = 1.0
 @export var seperation_weight: = 1.5
 
-# dir of velocity
-var vel : Vector3 = Vector3.FORWARD
 # ref to manager script
 var boidManager
 
@@ -35,10 +33,9 @@ func _physics_process(delta: float) -> void:
 			alignment += neighbor.velocity # match velocity
 			cohesion += neighbor.global_position # move towards group centre
 			# seperation - move away if too close
-			if distance < seperation_distance:
-				if seperation.length() > 0: # make sure we're not normalizing a zero vector
-					seperation -= offset.normalized() / distance
-				else: print("Seperation vector length is 0 or less")
+			if distance < seperation_distance and distance > 0:
+				seperation -= offset.normalized() / distance 
+			# else: print("Seperation vector length is 0 or less") #<- debugging
 			# increase neighbor count
 			neighborCount += 1
 	
@@ -56,8 +53,10 @@ func _physics_process(delta: float) -> void:
 		# combine behaviours into direction vector
 		var direction = (alignment * alignment_weight
 		+ cohesion * cohesion_weight
-		+ seperation * seperation_weight).normalized() # normalize for consistency
+		+ seperation * seperation_weight) 
 		
+		if direction.length() > 0: # make sure the direction actually has a length
+			direction = direction.normalized() # now direction's length isnt 0 we can safely normalize
 		#lerp towards the new dir
 		velocity = velocity.lerp(direction * speed, 0.1) # weight low to keep smooth movement hopefully
 	
@@ -71,7 +70,7 @@ func _physics_process(delta: float) -> void:
 func get_neighbors() -> Array:
 	var current = get_parent()
 	if current != null:
-		if current.has_method("get_neighbors"):
+		if current.has_method("get_neighbors"): # check the parent node has right script with func
 			return current.get_neighbors(self)
 		current = current.get_parent()
-	return []
+	return [] # returns the whole array
