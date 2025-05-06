@@ -11,7 +11,7 @@ uniform float beer_factor = 0.2;
 uniform float metallic = 0.6;
 uniform float specular = 0.5;
 uniform float roughness = 0.2;
-uniform sampler2D depth_texture: hint_depth_texture, filter_linear_mipmap, repeat_disable;
+uniform sampler2D DEPTH_TEXTURE: hint_depth_texture;
 
 float generateOffset(float x, float z, float val1, float val2, float time) {
 	float radiansX = ((mod(x + z * x * val1, amount) / amount) + (time * speed) * mod(x * 0.8 + z, 1.5)) * 2.0 * 3.14;
@@ -33,14 +33,15 @@ void vertex() {
 }
 
 void fragment() {
-	NORMAL = normalize(cross(dFdx(VERTEX), dFdy(VERTEX)));
+	vec3 world_vertex = (INV_VIEW_MATRIX * vec4(VERTEX,1.0)).xyz;
+   NORMAL = -normalize(cross(dFdx(world_vertex), dFdy(world_vertex)));
 	METALLIC = metallic;
 	SPECULAR = specular;
 	ROUGHNESS = roughness;
 	ALBEDO = out_color.rgb;
 	
 	if (beer_factor != 0.0) {
-		float depth = texture(depth_texture, SCREEN_UV).r;
+		float depth = texture(DEPTH_TEXTURE, SCREEN_UV).r;
 
 		depth = depth * 2.0 - 1.0;
 		depth = PROJECTION_MATRIX[3][2] / (depth + PROJECTION_MATRIX[2][2]);

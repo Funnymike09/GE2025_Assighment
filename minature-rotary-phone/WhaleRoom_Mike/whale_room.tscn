@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://crkbcbrire3e8"]
+[gd_scene load_steps=31 format=3 uid="uid://crkbcbrire3e8"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_4mwh7"]
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2_qxyp8"]
@@ -68,18 +68,27 @@ shader_parameter/roughness = 0.15
 shader_parameter/normal_strength = 1.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_yeyis"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5okd"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yeyis"]
 render_priority = 0
 shader = ExtResource("14_yeyis")
-shader_parameter/out_color = Color(0, 0.2, 1, 1)
-shader_parameter/amount = 0.8
-shader_parameter/speed = 1.0
-shader_parameter/beer_factor = 0.2
-shader_parameter/metallic = 0.6
-shader_parameter/specular = 0.5
-shader_parameter/roughness = 0.2
+shader_parameter/out_color = Color(0.213665, 0.364836, 0.631042, 1)
+shader_parameter/amount = 1.1
+shader_parameter/speed = 1.3
+shader_parameter/beer_factor = -0.055
+shader_parameter/metallic = 0.505
+shader_parameter/specular = 1.62
+shader_parameter/roughness = 0.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n5okd"]
+material = SubResource("ShaderMaterial_yeyis")
+size = Vector2(200, 200)
+subdivide_width = 50
+subdivide_depth = 50
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0htqq"]
+top_radius = 3.311
+bottom_radius = 21.454
+height = 15.353
 
 [node name="WhaleRoom" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.955582, 0)
@@ -256,14 +265,10 @@ radial_segments = 32
 rings = 16
 material = ExtResource("13_qxyp8")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(95.0648, 0, 0, 0, 95.0648, 0, 0, 0, 95.0648, 0.774689, 162.441, 0)
-material_override = ExtResource("13_qxyp8")
-mesh = SubResource("PlaneMesh_yeyis")
-surface_material_override/0 = ExtResource("13_qxyp8")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(95.0648, 0, 0, 0, 95.0648, 0, 0, 0, 95.0648, 0.774689, 162.441, -389)
-material_override = ExtResource("13_qxyp8")
-mesh = SubResource("PlaneMesh_yeyis")
-surface_material_override/0 = SubResource("ShaderMaterial_n5okd")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38237, 171.547, -5.6931)
+mesh = SubResource("PlaneMesh_n5okd")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0456, 4.0102, -441.962)
+mesh = SubResource("CylinderMesh_0htqq")
