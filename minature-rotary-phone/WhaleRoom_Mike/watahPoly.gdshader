@@ -52,4 +52,5 @@ void fragment() {
 	} else {
 		ALPHA = out_color.a;
 	}
+	// this was based from this code and updated for 4.4 godot: https://youtu.be/5MfcliFqjnE
 }

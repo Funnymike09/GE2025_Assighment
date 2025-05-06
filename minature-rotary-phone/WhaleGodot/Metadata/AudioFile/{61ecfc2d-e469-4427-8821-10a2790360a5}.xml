@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{61ecfc2d-e469-4427-8821-10a2790360a5}">
+		<property name="assetPath">
+			<value>Animals,_Aquatic,_Whale,_Emerge,_Hiss_&amp;_Breathe,_Close,_Water_Movement (3).wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>5.050583333333333</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11ef7afd-0c2f-4caf-8f24-910c26b7f0da}</destination>
+		</relationship>
+	</object>
+</objects>

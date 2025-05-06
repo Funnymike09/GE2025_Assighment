@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{6263749b-344c-4400-a92c-a08621e8f827}">
+		<property name="assetPath">
+			<value>Water,_Movement,_Dive_Into_Water,_Sea,_Splash,_Swimming_SND7708.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5603437499999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11ef7afd-0c2f-4caf-8f24-910c26b7f0da}</destination>
+		</relationship>
+	</object>
+</objects>

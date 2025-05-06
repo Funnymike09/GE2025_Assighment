@@ -72,11 +72,11 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 render_priority = 0
 shader = ExtResource("14_yeyis")
 shader_parameter/out_color = Color(0.213665, 0.364836, 0.631042, 1)
-shader_parameter/amount = 1.1
-shader_parameter/speed = 1.3
+shader_parameter/amount = 0.8
+shader_parameter/speed = 4.8
 shader_parameter/beer_factor = -0.055
-shader_parameter/metallic = 0.505
-shader_parameter/specular = 1.62
+shader_parameter/metallic = 0.0
+shader_parameter/specular = 0.315
 shader_parameter/roughness = 0.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n5okd"]
@@ -91,11 +91,12 @@ bottom_radius = 21.454
 height = 15.353
 
 [node name="WhaleRoom" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.955582, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_qxyp8")
@@ -247,6 +248,10 @@ surface_material_override/0 = ExtResource("3_yeyis")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body1"]
 shape = SubResource("BoxShape3D_on58n")
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="creature"]
+event_guid = "{00000000-0002-0000-0300-000026000000}"
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456073, 17.1303, 0)
+
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4845, 39.9587)
 curve = SubResource("Curve3D_4mwh7")
@@ -266,13 +271,26 @@ rings = 32
 material = ExtResource("13_qxyp8")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38237, 171.547, -5.6931)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09211, 171.547, -2.97721)
 mesh = SubResource("PlaneMesh_n5okd")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.17468, 73.8228, 95.118)
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.17468, 73.8228, 97.3891)
+mesh = SubResource("PlaneMesh_n5okd")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 0, 0, -1, 8.74228e-08, -1, 0, 2.02774, 73.8228, -99.0876)
+mesh = SubResource("PlaneMesh_n5okd")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="."]
+transform = Transform3D(-8.9407e-08, 1, 0, 0, 0, -1, -1, -8.9407e-08, 0, 99.1778, 73.8228, -2.08755)
 mesh = SubResource("PlaneMesh_n5okd")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.0456, 4.0102, -441.962)
 mesh = SubResource("CylinderMesh_0htqq")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 8.62148, 24.1866, 57.358)
+
+[node name="FmodListener3D" type="FmodListener3D" parent="Camera3D"]

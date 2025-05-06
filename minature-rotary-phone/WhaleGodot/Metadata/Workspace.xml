@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="Workspace" id="{fcd4a2e7-ddc3-42fb-90ab-6c16bed5e66d}">
+		<property name="builtBanksOutputDirectory">
+			<value>../../../../../Desktop/GE2025/GE2025_Assighment/minature-rotary-phone/FmodBank</value>
+		</property>
+		<relationship name="masterEventFolder">
+			<destination>{c456d5e2-b1bd-49a5-97f0-6c4e35581ad7}</destination>
+		</relationship>
+		<relationship name="masterTagFolder">
+			<destination>{c60f5a3d-6296-48c7-950e-01b827107119}</destination>
+		</relationship>
+		<relationship name="masterEffectPresetFolder">
+			<destination>{723c298e-9488-43c9-8056-cd880847bd0e}</destination>
+		</relationship>
+		<relationship name="masterParameterPresetFolder">
+			<destination>{e00c2afa-2f7f-4ae7-b899-a8b194a28362}</destination>
+		</relationship>
+		<relationship name="masterBankFolder">
+			<destination>{aaba1a13-348a-406e-a2f9-7508e32ae5a6}</destination>
+		</relationship>
+		<relationship name="masterSandboxFolder">
+			<destination>{4c3c4b6a-6f98-4a52-939a-9c76d1ae3360}</destination>
+		</relationship>
+		<relationship name="masterAssetFolder">
+			<destination>{11ef7afd-0c2f-4caf-8f24-910c26b7f0da}</destination>
+		</relationship>
+		<relationship name="mixer">
+			<destination>{714eefe7-6303-4a8e-9e67-3e6e39e012ac}</destination>
+		</relationship>
+		<relationship name="profilerSessionFolder">
+			<destination>{8bad8e2f-5e7c-45ed-9df5-c6e2cc9b7327}</destination>
+		</relationship>
+		<relationship name="platforms">
+			<destination>{a866a20c-3d52-44a0-9e5a-3f67c7c358c4}</destination>
+		</relationship>
+	</object>
+</objects>

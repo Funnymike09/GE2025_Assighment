@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bqrx7eh3x42dx"
+path="res://.godot/imported/Water,_Splash,_Large_Spray,_Pressure_Impact,_Whale_Spout,_Geyser (3).wav-a39dbdad664fda50c6f6cdb4638ed706.sample"
+
+[deps]
+
+source_file="res://WhaleGodot/Assets/Water,_Splash,_Large_Spray,_Pressure_Impact,_Whale_Spout,_Geyser (3).wav"
+dest_files=["res://.godot/imported/Water,_Splash,_Large_Spray,_Pressure_Impact,_Whale_Spout,_Geyser (3).wav-a39dbdad664fda50c6f6cdb4638ed706.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

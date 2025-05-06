@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{a6ccca32-f58a-4308-82ba-6047f2fcbe60}">
+		<property name="assetPath">
+			<value>AMBSea_LR_Turkey_Seaside,_Harbour,_Diver_In_Water,_Movements,_Sea.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>192</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>40.554124999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{11ef7afd-0c2f-4caf-8f24-910c26b7f0da}</destination>
+		</relationship>
+	</object>
+</objects>

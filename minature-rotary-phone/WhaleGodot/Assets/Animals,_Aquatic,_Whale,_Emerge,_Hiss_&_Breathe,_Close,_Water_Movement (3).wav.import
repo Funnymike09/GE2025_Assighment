@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://kas5jqy4eqeg"
+path="res://.godot/imported/Animals,_Aquatic,_Whale,_Emerge,_Hiss_&_Breathe,_Close,_Water_Movement (3).wav-804416afcd1893be7e6845d04abfaaf5.sample"
+
+[deps]
+
+source_file="res://WhaleGodot/Assets/Animals,_Aquatic,_Whale,_Emerge,_Hiss_&_Breathe,_Close,_Water_Movement (3).wav"
+dest_files=["res://.godot/imported/Animals,_Aquatic,_Whale,_Emerge,_Hiss_&_Breathe,_Close,_Water_Movement (3).wav-804416afcd1893be7e6845d04abfaaf5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
