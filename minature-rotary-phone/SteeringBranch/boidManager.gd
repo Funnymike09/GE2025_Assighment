@@ -8,7 +8,7 @@ func _ready():
 	
 	var children = get_children()
 	for child in children:
-		if child.get_script() and child.get_script().resource_path == "res://SteeringBranch/fishBoid.gd":
+		if child.get_script() and child.get_script().resource_path == "res://SteeringBranch/fishBoid.gd": # make sure node has the script
 			fish_list.append(child)
 	
 	#fish_list = get_children().filter(func(c): return c is CharacterBody3D) as Array[CharacterBody3D]
