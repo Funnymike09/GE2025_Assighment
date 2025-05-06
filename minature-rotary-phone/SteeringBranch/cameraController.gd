@@ -24,7 +24,7 @@ func _physics_process(delta: float) -> void: # my favourite function
 	if fish_list.size() == 0: return # in case of empty array, exit to prevent errors
 	var target_pos = get_average_pos()
 	# calc our desired pos based on our exported vars
-	var desired_pos = target_pos - global_transform.basis.z * follow_distance + Vector3.UP * height
+	var desired_pos = target_pos + Vector3.BACK * follow_distance + Vector3.UP * height
 	global_position = global_position.lerp(desired_pos, delta * follow_speed)
 	
 	look_at(target_pos, Vector3.UP) # set rotation to look at target pos

@@ -12,6 +12,18 @@ extends CharacterBody3D
 
 # ref to manager script
 var boidManager
+var current_behaviour = boidManager.current_behaviour
+
+# optional local targets
+var target_pos : Vector3
+var threat_pos : Vector3
+
+func seek(target: Vector3) -> Vector3:
+	var desired_pos = (target - global_position).normalized() * speed
+	return (desired_pos - velocity).limit_length(speed)
+
+func arrive(target: Vector3) -> Vector3
+	var target_distance 
 
 func _ready():
 	# checking boidmanager node exists
@@ -65,6 +77,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide() # how we shmove
 	
 	# rotate fish here
+	
 
 # gets neighbors from boidManager
 func get_neighbors() -> Array:
