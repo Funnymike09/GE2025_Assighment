@@ -224,7 +224,7 @@ draw_gizmos = false
 enabled = false
 
 [node name="tail" type="CharacterBody3D" parent="creature"]
-transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, -7.61551)
+transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, 7.11741)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="creature/tail"]
 transform = Transform3D(1, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, -0.504121)
@@ -259,14 +259,18 @@ rings = 16
 material = SubResource("ShaderMaterial_0htqq")
 
 [node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2857, 11.4053, -211.571)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2857, 11.4053, -442.947)
 radius = 96.139
-radial_segments = 32
-rings = 16
+radial_segments = 84
+rings = 32
 material = ExtResource("13_qxyp8")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.38237, 171.547, -5.6931)
+mesh = SubResource("PlaneMesh_n5okd")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 2.17468, 73.8228, 95.118)
 mesh = SubResource("PlaneMesh_n5okd")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
