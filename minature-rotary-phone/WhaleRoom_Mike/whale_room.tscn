@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="11_6qogq"]
 [ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="12_4mwh7"]
 [ext_resource type="Material" uid="uid://cr8yf6r3utjih" path="res://WhaleRoom_Mike/water_mat.tres" id="13_qxyp8"]
+[ext_resource type="Shader" uid="uid://ddrcy2amuoa8p" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="14_yeyis"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cgj76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -47,10 +48,6 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_446xd"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_2frcl"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gt1te"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_on58n"]
 
 [sub_resource type="Curve3D" id="Curve3D_4mwh7"]
@@ -73,7 +70,19 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yeyis"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5okd"]
+render_priority = 0
+shader = ExtResource("14_yeyis")
+shader_parameter/out_color = Color(0, 0.2, 1, 1)
+shader_parameter/amount = 0.8
+shader_parameter/speed = 1.0
+shader_parameter/beer_factor = 0.2
+shader_parameter/metallic = 0.6
+shader_parameter/specular = 0.5
+shader_parameter/roughness = 0.2
+
 [node name="WhaleRoom" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.955582, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -144,7 +153,7 @@ shape = SubResource("BoxShape3D_qxyp8")
 
 [node name="spineanimator" type="Node" parent="creature" node_paths=PackedStringArray("bones")]
 script = ExtResource("1_4mwh7")
-bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../body2"), NodePath("../body3"), NodePath("../tail")]
+bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../tail")]
 
 [node name="boid" type="CharacterBody3D" parent="creature"]
 transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, 25.9134)
@@ -218,28 +227,6 @@ surface_material_override/0 = ExtResource("3_yeyis")
 shape = SubResource("BoxShape3D_0htqq")
 disabled = true
 
-[node name="body3" type="CharacterBody3D" parent="creature"]
-transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, 0.128153)
-
-[node name="MeshInstance2" type="MeshInstance3D" parent="creature/body3"]
-mesh = SubResource("BoxMesh_446xd")
-skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("3_yeyis")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body3"]
-shape = SubResource("BoxShape3D_2frcl")
-
-[node name="body2" type="CharacterBody3D" parent="creature"]
-transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, 7.66347)
-
-[node name="MeshInstance3" type="MeshInstance3D" parent="creature/body2"]
-mesh = SubResource("BoxMesh_446xd")
-skeleton = NodePath("../../..")
-surface_material_override/0 = ExtResource("3_yeyis")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body2"]
-shape = SubResource("BoxShape3D_gt1te")
-
 [node name="body1" type="CharacterBody3D" parent="creature"]
 transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, 15.9261)
 
@@ -262,8 +249,21 @@ radial_segments = 32
 rings = 16
 material = SubResource("ShaderMaterial_0htqq")
 
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2857, 11.4053, -211.571)
+radius = 96.139
+radial_segments = 32
+rings = 16
+material = ExtResource("13_qxyp8")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.1228, 193.398, 0)
+transform = Transform3D(95.0648, 0, 0, 0, 95.0648, 0, 0, 0, 95.0648, 0.774689, 162.441, 0)
 material_override = ExtResource("13_qxyp8")
 mesh = SubResource("PlaneMesh_yeyis")
 surface_material_override/0 = ExtResource("13_qxyp8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(95.0648, 0, 0, 0, 95.0648, 0, 0, 0, 95.0648, 0.774689, 162.441, -389)
+material_override = ExtResource("13_qxyp8")
+mesh = SubResource("PlaneMesh_yeyis")
+surface_material_override/0 = SubResource("ShaderMaterial_n5okd")

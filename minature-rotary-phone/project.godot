@@ -37,6 +37,10 @@ config/icon="res://behaviors/icon.png"
 
 buses/default_bus_layout="res://behaviors/default_bus_layout.tres"
 
+[autoload]
+
+FmodManager="*res://addons/fmod/FmodManager.gd"
+
 [display]
 
 window/size/viewport_width=1024
@@ -57,7 +61,7 @@ version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/fmod/plugin.cfg")
 
 [filesystem]
 
