@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8jbmxqe25ujq"]
+
+[ext_resource type="Script" uid="uid://p16pig53abtb" path="res://SteeringBranch/fishBoid.gd" id="1_u2k7x"]
+[ext_resource type="Script" uid="uid://ca3v58odo31a" path="res://SteeringBranch/boidManager.gd" id="1_yv7un"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yv7un"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rld20"]
+
+[node name="SteeringTestDaragh" type="Node3D"]
+script = ExtResource("1_yv7un")
+
+[node name="Fish" type="CharacterBody3D" parent="."]
+script = ExtResource("1_u2k7x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
+mesh = SubResource("SphereMesh_yv7un")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish"]
+shape = SubResource("SphereShape3D_rld20")
