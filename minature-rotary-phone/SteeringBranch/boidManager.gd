@@ -1,6 +1,17 @@
 extends Node3D
+
+enum current_behaviour # state machine for different behaviours
+{
+	Wander, # standard behaviour state
+	#Seek, # if something interesting look for it
+	#Arrive, # when close to seek target
+	Flee # when close to whale
+}
+
 # our list of fish! :D
 var fish_list: Array[CharacterBody3D] = []
+@export var bounds_center = Vector3.ZERO # center point of the fish' boundaries
+@export var bounds_radius = 25.0 # radius of their boundaries
 
 func _ready():
 	# get fish from children nodes
