@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="11_6qogq"]
 [ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="12_4mwh7"]
 [ext_resource type="Material" uid="uid://cr8yf6r3utjih" path="res://WhaleRoom_Mike/water_mat.tres" id="13_qxyp8"]
-[ext_resource type="Shader" uid="uid://ddrcy2amuoa8p" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="14_yeyis"]
+[ext_resource type="Shader" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="14_yeyis"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cgj76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
