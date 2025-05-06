@@ -21,12 +21,6 @@ script = ExtResource("1_yv7un")
 [node name="Fish" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_u2k7x")
-speed = null
-vision_radius = null
-seperation_distance = null
-alignment_weight = null
-cohesion_weight = null
-seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
 mesh = SubResource("SphereMesh_yv7un")
@@ -37,12 +31,6 @@ shape = SubResource("SphereShape3D_rld20")
 [node name="Fish2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 0.5, 2.01661)
 script = ExtResource("1_u2k7x")
-speed = null
-vision_radius = null
-seperation_distance = null
-alignment_weight = null
-cohesion_weight = null
-seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
 mesh = SubResource("SphereMesh_yv7un")
@@ -53,12 +41,6 @@ shape = SubResource("SphereShape3D_rld20")
 [node name="Fish3" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.5, -1.60142)
 script = ExtResource("1_u2k7x")
-speed = null
-vision_radius = null
-seperation_distance = null
-alignment_weight = null
-cohesion_weight = null
-seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
 mesh = SubResource("SphereMesh_yv7un")
@@ -69,12 +51,6 @@ shape = SubResource("SphereShape3D_rld20")
 [node name="Fish4" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9573, 0.5, 1.83867)
 script = ExtResource("1_u2k7x")
-speed = null
-vision_radius = null
-seperation_distance = null
-alignment_weight = null
-cohesion_weight = null
-seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
 mesh = SubResource("SphereMesh_yv7un")
@@ -85,12 +61,6 @@ shape = SubResource("SphereShape3D_rld20")
 [node name="Fish5" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, 0.5, -1.18624)
 script = ExtResource("1_u2k7x")
-speed = null
-vision_radius = null
-seperation_distance = null
-alignment_weight = null
-cohesion_weight = null
-seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
 mesh = SubResource("SphereMesh_yv7un")
@@ -101,12 +71,6 @@ shape = SubResource("SphereShape3D_rld20")
 [node name="Fish6" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 0.5, -0.118623)
 script = ExtResource("1_u2k7x")
-speed = null
-vision_radius = null
-seperation_distance = null
-alignment_weight = null
-cohesion_weight = null
-seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
 mesh = SubResource("SphereMesh_yv7un")
