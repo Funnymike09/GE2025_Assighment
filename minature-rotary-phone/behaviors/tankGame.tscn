@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://bsd26l7esfabd"]
 
-[ext_resource type="Script" path="res://behaviors/wall.gd" id="2"]
-[ext_resource type="Script" path="res://behaviors/CamFollow.gd" id="2_lqmp0"]
+[ext_resource type="Script" uid="uid://b7y0rln02745t" path="res://behaviors/wall.gd" id="2"]
+[ext_resource type="Script" uid="uid://cvu0kb4qvj8ui" path="res://behaviors/CamFollow.gd" id="2_lqmp0"]
 [ext_resource type="PackedScene" uid="uid://bsmshwh5fdw1y" path="res://behaviors/Box.tscn" id="4"]
-[ext_resource type="PackedScene" uid="uid://d26vt30ugeu0d" path="res://behaviors/SceneSwitcher.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://dc24oh4o5erhi" path="res://behaviors/SceneSwitcher.tscn" id="5"]
 [ext_resource type="Material" uid="uid://jru41rxv1b16" path="res://behaviors/Ground.tres" id="5_m2ykm"]
 [ext_resource type="PackedScene" uid="uid://dsoyb1m4o4ieh" path="res://behaviors/tank.tscn" id="6"]
 [ext_resource type="PackedScene" uid="uid://b4pok7xvls88x" path="res://behaviors/bullet1.tscn" id="7_yhs48"]

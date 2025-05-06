@@ -1,3 +1,155 @@
-[gd_scene format=3 uid="uid://crkbcbrire3e8"]
+[gd_scene load_steps=22 format=3 uid="uid://crkbcbrire3e8"]
+
+[ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_u0k7e"]
+[ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2_7l6xe"]
+[ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="3_e656n"]
+[ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="4_yifte"]
+[ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="5_avsym"]
+[ext_resource type="Script" uid="uid://ci8facjqq07ft" path="res://behaviors/constrain.gd" id="6_vmsoj"]
+[ext_resource type="Script" uid="uid://bqb47mif0r5vt" path="res://behaviors/noise_wander.gd" id="7_3s6hx"]
+[ext_resource type="Script" uid="uid://b6jj7yxhu2hi1" path="res://behaviors/follow_path.gd" id="8_7h1g4"]
+[ext_resource type="Script" uid="uid://c2d7mphmtn1jv" path="res://behaviors/seek.gd" id="9_2qyfy"]
+[ext_resource type="Script" uid="uid://bn4xj07get8k6" path="res://behaviors/arrive.gd" id="10_jo8g1"]
+[ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="11_30q07"]
+[ext_resource type="Script" uid="uid://bfoar4ahwpbra" path="res://behaviors/PathDrawer.gd" id="13_e656n"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_q6njg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gx8b3"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_q7cp4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v67um"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rfghq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_prqx2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f2bia"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1labq"]
+
+[sub_resource type="Curve3D" id="Curve3D_yifte"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -11.2065, -9.15527e-05, -29.797, 0, 0, 0, 0, 0, 0, -2.83316, 0.000137329, -9.18577, 0, 0, 0, 0, 0, 0, 16.3011, 23.6271, -8.24546, 0, 0, 0, 0, 0, 0, 46.7083, -5.34058e-05, -27.2299, 0, 0, 0, 0, 0, 0, 52.709, 22.523, -0.299791, 0, 0, 0, 0, 0, 0, 61.4845, 0, 43.691, 0, 0, 0, 0, 0, 0, 41.071, 9.53445, 8.45671, 0, 0, 0, 0, 0, 0, 2.29026, 0, 45.1004, 0, 0, 0, 0, 0, 0, 24.8938, -17.113, 20.9767),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 9
 
 [node name="WhaleRoom" type="Node3D"]
+
+[node name="creature" type="Node" parent="."]
+
+[node name="spineanimator" type="Node" parent="creature" node_paths=PackedStringArray("bones")]
+script = ExtResource("1_u0k7e")
+bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../body2"), NodePath("../body3"), NodePath("../tail")]
+
+[node name="boid" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 12.5154)
+script = ExtResource("2_7l6xe")
+max_force = 50
+banking = 0.07
+damping = 0.3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="creature/boid"]
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_q6njg")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_e656n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/boid"]
+shape = SubResource("BoxShape3D_gx8b3")
+
+[node name="Avoidance" type="Node" parent="creature/boid"]
+script = ExtResource("4_yifte")
+
+[node name="Harmonic" type="Node" parent="creature/boid"]
+script = ExtResource("5_avsym")
+frequency = 0.5
+distance = 10
+weight = 6.0
+
+[node name="Constrain" type="Node" parent="creature/boid"]
+script = ExtResource("6_vmsoj")
+center_path = NodePath("../../../Center")
+
+[node name="NoiseWander" type="Node" parent="creature/boid"]
+script = ExtResource("7_3s6hx")
+radius = 50.0
+amplitude = 90
+distance = 100
+draw_gizmos = false
+
+[node name="PathFollow3D" type="Node" parent="creature/boid"]
+script = ExtResource("8_7h1g4")
+waypoint_seek_distance = 5
+weight = 3.0
+
+[node name="Seek" type="Node" parent="creature/boid"]
+script = ExtResource("9_2qyfy")
+draw_gizmos = false
+enabled = false
+
+[node name="Arrive" type="Node" parent="creature/boid"]
+script = ExtResource("10_jo8g1")
+draw_gizmos = false
+enabled = false
+
+[node name="UserSteering" type="Node" parent="creature/boid"]
+script = ExtResource("11_30q07")
+draw_gizmos = false
+enabled = false
+
+[node name="tail" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.26002)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="creature/tail"]
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, -0.504121)
+mesh = SubResource("PrismMesh_q7cp4")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("3_e656n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/tail"]
+shape = SubResource("BoxShape3D_v67um")
+disabled = true
+
+[node name="body3" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.70473)
+
+[node name="MeshInstance2" type="MeshInstance3D" parent="creature/body3"]
+mesh = SubResource("BoxMesh_rfghq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_e656n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body3"]
+shape = SubResource("BoxShape3D_prqx2")
+
+[node name="body2" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.11057)
+
+[node name="MeshInstance3" type="MeshInstance3D" parent="creature/body2"]
+mesh = SubResource("BoxMesh_rfghq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_e656n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body2"]
+shape = SubResource("BoxShape3D_f2bia")
+
+[node name="body1" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.6521)
+
+[node name="MeshInstance4" type="MeshInstance3D" parent="creature/body1"]
+mesh = SubResource("BoxMesh_rfghq")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("3_e656n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body1"]
+shape = SubResource("BoxShape3D_1labq")
+
+[node name="Marker3D" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -90.1317)
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(0.029265, 0, -0.999572, 0, 1, 0, 0.999572, 0, 0.029265, 6.28377, -4.57764e-05, -18.2004)
+curve = SubResource("Curve3D_yifte")
+script = ExtResource("13_e656n")

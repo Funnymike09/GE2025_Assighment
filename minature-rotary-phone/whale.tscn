@@ -1,21 +1,21 @@
 [gd_scene load_steps=5 format=3 uid="uid://s2efpi5gqak5"]
 
-[ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="1_iuyin"]
-[ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_kuoxj"]
-[ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="3_347xv"]
-[ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="4_347xv"]
+[ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_pf8in"]
+[ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2_wg7fs"]
+[ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="3_mxwv7"]
+[ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="4_yc1uw"]
 
 [node name="Node3D" type="Node3D"]
 
 [node name="creature" type="Node3D" parent="."]
 
 [node name="SpineAnimator" type="Node" parent="creature" node_paths=PackedStringArray("bones")]
-script = ExtResource("1_kuoxj")
+script = ExtResource("1_pf8in")
 bones = [NodePath("../boid"), NodePath("../CSGBox3D"), NodePath("../CSGBox3D2"), NodePath("../CSGBox3D3"), NodePath("../CSGBox3D4"), NodePath("../CSGPolygon3D")]
-metadata/_custom_type_script = ExtResource("1_kuoxj")
+metadata/_custom_type_script = "uid://bb475dsswmiyu"
 
 [node name="boid" type="CharacterBody3D" parent="creature"]
-script = ExtResource("1_iuyin")
+script = ExtResource("2_wg7fs")
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="creature/boid"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.041, -0.5)
@@ -25,8 +25,8 @@ spin_degrees = 360.0
 spin_sides = 8
 
 [node name="Harmonic" type="Node" parent="creature/boid"]
-script = ExtResource("3_347xv")
-metadata/_custom_type_script = ExtResource("3_347xv")
+script = ExtResource("3_mxwv7")
+metadata/_custom_type_script = "uid://bctpwo8cerrgq"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="creature"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.13564)
@@ -56,5 +56,5 @@ polygon = PackedVector2Array(0, 0, 0.108307, 0.843262, 1.01495, 0.146317, 1, 0)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.703506, 0.710689, 0, -0.710689, 0.703506, 0, 5.58868, 3.91039)
-script = ExtResource("4_347xv")
+script = ExtResource("4_yc1uw")
 speed = 10.0

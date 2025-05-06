@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://g63rjyuo56ym"]
+[gd_scene load_steps=13 format=3 uid="uid://g63rjyuo56ym"]
 
 [ext_resource type="PackedScene" uid="uid://pk6xti30q24e" path="res://behaviors/creature.tscn" id="1"]
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="2"]
@@ -13,6 +13,8 @@
 background_mode = 1
 ambient_light_color = Color(0.392157, 0.392157, 0.392157, 1)
 ambient_light_energy = 2.0
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_nmdb0"]
 
 [sub_resource type="Curve3D" id="2"]
 _data = {
@@ -41,6 +43,9 @@ script = ExtResource("3")
 
 [node name="OffsetPursue" type="Node" parent="camera follower"]
 script = ExtResource("7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="camera follower"]
+shape = SubResource("SeparationRayShape3D_nmdb0")
 
 [node name="creature" parent="." instance=ExtResource("1")]
 

@@ -1,100 +1,87 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=9 format=4 uid="uid://d3yhaigo4w5v3"]
 
-[ext_resource path="res://Models/cobramk3_out/Material_004.material" type="Material" id=1]
-[ext_resource path="res://Models/cobramk3_out/Material_003.material" type="Material" id=2]
-[ext_resource path="res://Models/cobramk3_out/Thruster.material" type="Material" id=3]
-[ext_resource path="res://Models/cobramk3_out/Material_007.material" type="Material" id=4]
-[ext_resource path="res://Models/cobramk3_out/Material_002.material" type="Material" id=5]
-[ext_resource path="res://Models/cobramk3_out/Material_005.material" type="Material" id=6]
-[ext_resource path="res://Models/cobramk3_out/Material_001.material" type="Material" id=7]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Material_004.material" id="1"]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Material_003.material" id="2"]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Thruster.material" id="3"]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Material_007.material" id="4"]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Material_002.material" id="5"]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Material_005.material" id="6"]
+[ext_resource type="Material" path="res://Models/cobramk3_out/Material_001.material" id="7"]
 
-[sub_resource type="ArrayMesh" id=1]
+[sub_resource type="ArrayMesh" id="1"]
 resource_name = "Root Scene_CobraMk3"
-surfaces/0 = {
-"aabb": AABB( -0.16, -0.0958706, -0.0107176, 0.32, 0.145333, 0.0425 ),
-"array_data": PackedByteArray( 10, 215, 35, 61, 205, 87, 196, 189, 173, 32, 60, 186, 245, 41, 11, 163, 10, 215, 35, 62, 112, 153, 74, 61, 10, 153, 47, 188, 173, 90, 16, 55, 153, 153, 25, 62, 133, 147, 21, 60, 203, 8, 148, 187, 121, 80, 115, 203, 10, 215, 35, 189, 205, 87, 196, 189, 173, 32, 60, 186, 11, 214, 11, 163, 153, 153, 25, 190, 133, 147, 21, 60, 203, 8, 148, 187, 135, 175, 115, 203, 10, 215, 35, 190, 112, 153, 74, 61, 10, 153, 47, 188, 83, 165, 16, 55, 0, 0, 0, 0, 82, 228, 252, 188, 54, 46, 2, 61, 0, 0, 243, 231 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 0, 0, 3, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+_surfaces = [{
+"aabb": AABB(-0.16, -0.0958706, -0.0107176, 0.32, 0.145333, 0.0425),
+"format": 34359742467,
 "index_count": 9,
-"material": ExtResource( 5 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 7
-}
-surfaces/1 = {
-"aabb": AABB( -0.11, -0.0958706, -0.0307176, 0.22, 0.145343, 0.0625 ),
-"array_data": PackedByteArray( 174, 71, 225, 189, 112, 153, 74, 61, 5, 246, 157, 60, 5, 236, 201, 47, 0, 0, 0, 0, 82, 228, 252, 188, 54, 46, 2, 61, 0, 0, 243, 231, 0, 0, 0, 0, 112, 153, 74, 61, 54, 46, 2, 61, 0, 0, 207, 61, 10, 215, 35, 61, 205, 87, 196, 189, 173, 32, 60, 186, 245, 41, 11, 163, 10, 215, 35, 189, 205, 87, 196, 189, 173, 32, 60, 186, 11, 214, 11, 163, 10, 215, 35, 189, 112, 153, 74, 61, 148, 163, 251, 188, 137, 181, 92, 122, 10, 215, 35, 61, 112, 153, 74, 61, 148, 163, 251, 188, 119, 74, 92, 122, 174, 71, 225, 61, 112, 153, 74, 61, 5, 246, 157, 60, 251, 19, 201, 47 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 3, 0, 6, 0, 5, 0, 1, 0, 2, 0, 7, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+"index_data": PackedByteArray("AAACAAEAAwAFAAQABgAAAAMA"),
+"material": ExtResource("5"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 7,
+"vertex_data": PackedByteArray("CtcjPc1XxL2tIDy6CtcjPnCZSj0KmS+8mZkZPoWTFTzLCJS7Ctcjvc1XxL2tIDy6mZkZvoWTFTzLCJS7CtcjvnCZSj0KmS+8AAAAAFLk/Lw2LgI99SkLo61aEDd5UHPLC9YLo4evc8tTpRA3AADz5w==")
+}, {
+"aabb": AABB(-0.11, -0.0958706, -0.0307176, 0.22, 0.145343, 0.0625),
+"format": 34359742467,
 "index_count": 12,
-"material": ExtResource( 1 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 8
-}
-surfaces/2 = {
-"aabb": AABB( -0.16, -0.0958706, -0.0307176, 0.32, 0.145343, 0.0625 ),
-"array_data": PackedByteArray( 174, 71, 225, 61, 112, 153, 74, 61, 5, 246, 157, 60, 251, 19, 201, 47, 0, 0, 0, 0, 82, 228, 252, 188, 54, 46, 2, 61, 0, 0, 243, 231, 10, 215, 35, 61, 205, 87, 196, 189, 173, 32, 60, 186, 245, 41, 11, 163, 10, 215, 35, 61, 112, 153, 74, 61, 148, 163, 251, 188, 119, 74, 92, 122, 10, 215, 35, 62, 112, 153, 74, 61, 10, 153, 47, 188, 173, 90, 16, 55, 10, 215, 35, 189, 205, 87, 196, 189, 173, 32, 60, 186, 11, 214, 11, 163, 174, 71, 225, 189, 112, 153, 74, 61, 5, 246, 157, 60, 5, 236, 201, 47, 10, 215, 35, 190, 112, 153, 74, 61, 10, 153, 47, 188, 83, 165, 16, 55, 10, 215, 35, 189, 112, 153, 74, 61, 148, 163, 251, 188, 137, 181, 92, 122 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 2, 0, 4, 0, 3, 0, 5, 0, 6, 0, 1, 0, 5, 0, 8, 0, 7, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+"index_data": PackedByteArray("AAACAAEAAwAFAAQAAwAGAAUAAQACAAcA"),
+"material": ExtResource("1"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("rkfhvXCZSj0F9p08AAAAAFLk/Lw2LgI9AAAAAHCZSj02LgI9CtcjPc1XxL2tIDy6Ctcjvc1XxL2tIDy6CtcjvXCZSj2Uo/u8CtcjPXCZSj2Uo/u8rkfhPXCZSj0F9p08BezJLwAA8+cAAM899SkLowvWC6OJtVx6d0pcevsTyS8=")
+}, {
+"aabb": AABB(-0.16, -0.0958706, -0.0307176, 0.32, 0.145343, 0.0625),
+"format": 34359742467,
 "index_count": 12,
-"material": ExtResource( 6 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 9
-}
-surfaces/3 = {
-"aabb": AABB( -0.15, -0.0958706, -0.00451765, 0.3, 0.145343, 0.02381 ),
-"array_data": PackedByteArray( 174, 71, 225, 189, 112, 153, 74, 61, 5, 246, 157, 60, 5, 236, 201, 47, 153, 153, 25, 190, 133, 147, 21, 60, 203, 8, 148, 187, 135, 175, 115, 203, 10, 215, 35, 189, 205, 87, 196, 189, 173, 32, 60, 186, 11, 214, 11, 163, 10, 215, 35, 61, 205, 87, 196, 189, 173, 32, 60, 186, 245, 41, 11, 163, 153, 153, 25, 62, 133, 147, 21, 60, 203, 8, 148, 187, 121, 80, 115, 203, 174, 71, 225, 61, 112, 153, 74, 61, 5, 246, 157, 60, 251, 19, 201, 47 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+"index_data": PackedByteArray("AAACAAEAAgAEAAMABQAGAAEABQAIAAcA"),
+"material": ExtResource("6"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 9,
+"vertex_data": PackedByteArray("rkfhPXCZSj0F9p08AAAAAFLk/Lw2LgI9CtcjPc1XxL2tIDy6CtcjPXCZSj2Uo/u8CtcjPnCZSj0KmS+8Ctcjvc1XxL2tIDy6rkfhvXCZSj0F9p08CtcjvnCZSj0KmS+8CtcjvXCZSj2Uo/u8+xPJLwAA8+f1KQujd0pceq1aEDcL1gujBezJL1OlEDeJtVx6")
+}, {
+"aabb": AABB(-0.15, -0.0958706, -0.00451765, 0.3, 0.145343, 0.02381),
+"format": 34359742467,
 "index_count": 6,
-"material": ExtResource( 2 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 6
-}
-surfaces/4 = {
-"aabb": AABB( -0.16, 0.00912941, -0.0107176, 0.32, 0.0403433, 0.03001 ),
-"array_data": PackedByteArray( 174, 71, 225, 189, 112, 153, 74, 61, 5, 246, 157, 60, 5, 236, 201, 47, 10, 215, 35, 190, 112, 153, 74, 61, 10, 153, 47, 188, 83, 165, 16, 55, 153, 153, 25, 190, 133, 147, 21, 60, 203, 8, 148, 187, 135, 175, 115, 203, 10, 215, 35, 62, 112, 153, 74, 61, 10, 153, 47, 188, 173, 90, 16, 55, 174, 71, 225, 61, 112, 153, 74, 61, 5, 246, 157, 60, 251, 19, 201, 47, 153, 153, 25, 62, 133, 147, 21, 60, 203, 8, 148, 187, 121, 80, 115, 203 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+"index_data": PackedByteArray("AAACAAEAAwAFAAQA"),
+"material": ExtResource("2"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("rkfhvXCZSj0F9p08mZkZvoWTFTzLCJS7Ctcjvc1XxL2tIDy6CtcjPc1XxL2tIDy6mZkZPoWTFTzLCJS7rkfhPXCZSj0F9p08BezJL4evc8sL1guj9SkLo3lQc8v7E8kv")
+}, {
+"aabb": AABB(-0.16, 0.00912941, -0.0107176, 0.32, 0.0403433, 0.03001),
+"format": 34359742467,
 "index_count": 6,
-"material": ExtResource( 7 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 6
-}
-surfaces/5 = {
-"aabb": AABB( -0.11, 0.0494627, -0.0207176, 0.22, 9.99868e-06, 0.035 ),
-"array_data": PackedByteArray( 174, 71, 225, 189, 112, 153, 74, 61, 1, 32, 60, 186, 0, 0, 255, 127, 204, 204, 204, 189, 112, 153, 74, 61, 143, 62, 222, 59, 0, 0, 255, 127, 204, 204, 204, 189, 112, 153, 74, 61, 71, 163, 6, 188, 0, 0, 255, 127, 204, 204, 204, 61, 112, 153, 74, 61, 143, 62, 222, 59, 0, 0, 255, 127, 174, 71, 225, 61, 112, 153, 74, 61, 1, 32, 60, 186, 0, 0, 255, 127, 204, 204, 204, 61, 112, 153, 74, 61, 71, 163, 6, 188, 0, 0, 255, 127, 235, 81, 56, 189, 112, 153, 74, 61, 10, 21, 24, 60, 0, 0, 255, 127, 10, 215, 35, 188, 112, 153, 74, 61, 143, 0, 106, 60, 0, 0, 255, 127, 10, 215, 35, 188, 112, 153, 74, 61, 15, 184, 169, 188, 0, 0, 255, 127, 235, 81, 56, 189, 112, 153, 74, 61, 71, 194, 128, 188, 0, 0, 255, 127, 10, 215, 35, 60, 112, 153, 74, 61, 143, 0, 106, 60, 0, 0, 255, 127, 235, 81, 56, 61, 112, 153, 74, 61, 10, 21, 24, 60, 0, 0, 255, 127, 235, 81, 56, 61, 112, 153, 74, 61, 71, 194, 128, 188, 0, 0, 255, 127, 10, 215, 35, 60, 112, 153, 74, 61, 15, 184, 169, 188, 0, 0, 255, 127 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 3, 0, 5, 0, 4, 0, 6, 0, 8, 0, 7, 0, 6, 0, 9, 0, 8, 0, 10, 0, 12, 0, 11, 0, 10, 0, 13, 0, 12, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+"index_data": PackedByteArray("AAACAAEAAwAFAAQA"),
+"material": ExtResource("7"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("rkfhvXCZSj0F9p08CtcjvnCZSj0KmS+8mZkZvoWTFTzLCJS7CtcjPnCZSj0KmS+8rkfhPXCZSj0F9p08mZkZPoWTFTzLCJS7BezJL1OlEDeHr3PLrVoQN/sTyS95UHPL")
+}, {
+"aabb": AABB(-0.11, 0.0494627, -0.0207176, 0.22, 9.99868e-06, 0.035),
+"format": 34359742467,
 "index_count": 18,
-"material": ExtResource( 3 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 14
-}
-surfaces/6 = {
-"aabb": AABB( -0.16, -0.113371, -0.0307176, 0.32, 0.162833, 0.0625 ),
-"array_data": PackedByteArray( 111, 18, 3, 187, 165, 105, 196, 189, 134, 20, 168, 58, 84, 85, 84, 85, 111, 18, 3, 187, 205, 87, 196, 189, 197, 26, 50, 187, 255, 63, 0, 0, 111, 18, 3, 187, 205, 87, 196, 189, 134, 20, 168, 58, 255, 127, 255, 63, 111, 18, 3, 59, 165, 105, 196, 189, 197, 26, 50, 187, 86, 213, 170, 42, 111, 18, 3, 187, 165, 105, 196, 189, 197, 26, 50, 187, 170, 42, 170, 42, 111, 18, 3, 59, 165, 105, 196, 189, 134, 20, 168, 58, 172, 170, 84, 85, 111, 18, 3, 59, 205, 87, 196, 189, 134, 20, 168, 58, 1, 128, 255, 63, 111, 18, 3, 59, 205, 87, 196, 189, 197, 26, 50, 187, 1, 192, 0, 0, 111, 18, 3, 59, 205, 87, 196, 189, 134, 20, 168, 58, 255, 127, 255, 63, 111, 18, 3, 187, 205, 87, 196, 189, 134, 20, 168, 58, 1, 128, 255, 63, 111, 18, 3, 59, 205, 87, 196, 189, 197, 26, 50, 187, 255, 63, 0, 0, 111, 18, 3, 187, 205, 87, 196, 189, 197, 26, 50, 187, 1, 192, 0, 0, 111, 18, 3, 59, 215, 46, 232, 189, 134, 20, 168, 58, 84, 85, 84, 85, 111, 18, 3, 187, 215, 46, 232, 189, 134, 20, 168, 58, 172, 170, 84, 85, 111, 18, 3, 59, 215, 46, 232, 189, 197, 26, 50, 187, 170, 42, 170, 42, 111, 18, 3, 187, 215, 46, 232, 189, 197, 26, 50, 187, 86, 213, 170, 42, 235, 81, 56, 189, 112, 153, 74, 61, 10, 21, 24, 60, 0, 0, 255, 127, 235, 81, 56, 189, 112, 153, 74, 61, 71, 194, 128, 188, 0, 0, 255, 127, 204, 204, 204, 189, 112, 153, 74, 61, 71, 163, 6, 188, 0, 0, 255, 127, 204, 204, 204, 189, 112, 153, 74, 61, 143, 62, 222, 59, 0, 0, 255, 127, 235, 81, 56, 61, 112, 153, 74, 61, 10, 21, 24, 60, 0, 0, 255, 127, 204, 204, 204, 61, 112, 153, 74, 61, 143, 62, 222, 59, 0, 0, 255, 127, 204, 204, 204, 61, 112, 153, 74, 61, 71, 163, 6, 188, 0, 0, 255, 127, 235, 81, 56, 61, 112, 153, 74, 61, 71, 194, 128, 188, 0, 0, 255, 127, 10, 215, 35, 60, 112, 153, 74, 61, 143, 0, 106, 60, 0, 0, 255, 127, 10, 215, 35, 60, 112, 153, 74, 61, 15, 184, 169, 188, 0, 0, 255, 127, 10, 215, 35, 188, 112, 153, 74, 61, 15, 184, 169, 188, 0, 0, 255, 127, 10, 215, 35, 188, 112, 153, 74, 61, 143, 0, 106, 60, 0, 0, 255, 127, 0, 0, 0, 0, 112, 153, 74, 61, 54, 46, 2, 61, 0, 0, 207, 61, 10, 215, 35, 190, 112, 153, 74, 61, 10, 153, 47, 188, 83, 165, 16, 55, 174, 71, 225, 189, 112, 153, 74, 61, 1, 32, 60, 186, 0, 0, 255, 127, 174, 71, 225, 189, 112, 153, 74, 61, 5, 246, 157, 60, 5, 236, 201, 47, 10, 215, 35, 62, 112, 153, 74, 61, 10, 153, 47, 188, 173, 90, 16, 55, 174, 71, 225, 61, 112, 153, 74, 61, 1, 32, 60, 186, 0, 0, 255, 127, 174, 71, 225, 61, 112, 153, 74, 61, 5, 246, 157, 60, 251, 19, 201, 47, 10, 215, 35, 61, 112, 153, 74, 61, 148, 163, 251, 188, 119, 74, 92, 122, 10, 215, 35, 189, 112, 153, 74, 61, 148, 163, 251, 188, 137, 181, 92, 122 ),
-"array_index_data": PackedByteArray( 0, 0, 2, 0, 1, 0, 0, 0, 4, 0, 3, 0, 0, 0, 3, 0, 5, 0, 5, 0, 6, 0, 2, 0, 5, 0, 2, 0, 0, 0, 3, 0, 6, 0, 5, 0, 7, 0, 8, 0, 6, 0, 7, 0, 3, 0, 4, 0, 7, 0, 4, 0, 1, 0, 6, 0, 3, 0, 7, 0, 6, 0, 9, 0, 2, 0, 1, 0, 4, 0, 0, 0, 1, 0, 10, 0, 7, 0, 2, 0, 11, 0, 1, 0, 9, 0, 13, 0, 12, 0, 9, 0, 12, 0, 8, 0, 9, 0, 6, 0, 8, 0, 8, 0, 7, 0, 10, 0, 12, 0, 10, 0, 14, 0, 12, 0, 8, 0, 10, 0, 11, 0, 2, 0, 9, 0, 10, 0, 1, 0, 11, 0, 15, 0, 11, 0, 10, 0, 15, 0, 10, 0, 14, 0, 15, 0, 9, 0, 13, 0, 15, 0, 11, 0, 9, 0, 15, 0, 14, 0, 12, 0, 15, 0, 12, 0, 13, 0, 16, 0, 18, 0, 17, 0, 16, 0, 19, 0, 18, 0, 20, 0, 22, 0, 21, 0, 20, 0, 23, 0, 22, 0, 24, 0, 26, 0, 25, 0, 24, 0, 27, 0, 26, 0, 28, 0, 27, 0, 24, 0, 29, 0, 18, 0, 30, 0, 31, 0, 19, 0, 16, 0, 31, 0, 29, 0, 30, 0, 31, 0, 16, 0, 27, 0, 31, 0, 27, 0, 28, 0, 31, 0, 30, 0, 19, 0, 32, 0, 33, 0, 22, 0, 34, 0, 24, 0, 20, 0, 34, 0, 28, 0, 24, 0, 34, 0, 33, 0, 32, 0, 34, 0, 20, 0, 21, 0, 34, 0, 21, 0, 33, 0, 35, 0, 32, 0, 22, 0, 35, 0, 23, 0, 25, 0, 35, 0, 22, 0, 23, 0, 36, 0, 35, 0, 25, 0, 36, 0, 25, 0, 26, 0, 36, 0, 18, 0, 29, 0, 36, 0, 17, 0, 18, 0, 36, 0, 26, 0, 17, 0 ),
-"blend_shape_data": [  ],
-"format": 2194691,
+"index_data": PackedByteArray("AAACAAEAAwAFAAQABgAIAAcABgAJAAgACgAMAAsACgANAAwA"),
+"material": ExtResource("3"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 14,
+"vertex_data": PackedByteArray("rkfhvXCZSj0BIDy6zMzMvXCZSj2PPt47zMzMvXCZSj1Howa8zMzMPXCZSj2PPt47rkfhPXCZSj0BIDy6zMzMPXCZSj1Howa861E4vXCZSj0KFRg8CtcjvHCZSj2PAGo8CtcjvHCZSj0PuKm861E4vXCZSj1HwoC8CtcjPHCZSj2PAGo861E4PXCZSj0KFRg861E4PXCZSj1HwoC8CtcjPHCZSj0PuKm8AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38=")
+}, {
+"aabb": AABB(-0.16, -0.113371, -0.0307176, 0.32, 0.162833, 0.0625),
+"format": 34359742467,
 "index_count": 165,
-"material": ExtResource( 4 ),
-"primitive": 4,
-"skeleton_aabb": [  ],
-"vertex_count": 37
-}
+"index_data": PackedByteArray("AAACAAEAAAAEAAMAAAADAAUABQAGAAIABQACAAAAAwAGAAUABwAIAAYABwADAAQABwAEAAEABgADAAcABgAJAAIAAQAEAAAAAQAKAAcAAgALAAEACQANAAwACQAMAAgACQAGAAgACAAHAAoADAAKAA4ADAAIAAoACwACAAkACgABAAsADwALAAoADwAKAA4ADwAJAA0ADwALAAkADwAOAAwADwAMAA0AEAASABEAEAATABIAFAAWABUAFAAXABYAGAAaABkAGAAbABoAHAAbABgAHQASAB4AHwATABAAHwAdAB4AHwAQABsAHwAbABwAHwAeABMAIAAhABYAIgAYABQAIgAcABgAIgAhACAAIgAUABUAIgAVACEAIwAgABYAIwAXABkAIwAWABcAJAAjABkAJAAZABoAJAASAB0AJAARABIAJAAaABEA"),
+"material": ExtResource("4"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 37,
+"vertex_data": PackedByteArray("bxIDu6VpxL2GFKg6bxIDu81XxL3FGjK7bxIDu81XxL2GFKg6bxIDO6VpxL3FGjK7bxIDu6VpxL3FGjK7bxIDO6VpxL2GFKg6bxIDO81XxL2GFKg6bxIDO81XxL3FGjK7bxIDO81XxL2GFKg6bxIDu81XxL2GFKg6bxIDO81XxL3FGjK7bxIDu81XxL3FGjK7bxIDO9cu6L2GFKg6bxIDu9cu6L2GFKg6bxIDO9cu6L3FGjK7bxIDu9cu6L3FGjK761E4vXCZSj0KFRg861E4vXCZSj1HwoC8zMzMvXCZSj1Howa8zMzMvXCZSj2PPt4761E4PXCZSj0KFRg8zMzMPXCZSj2PPt47zMzMPXCZSj1Howa861E4PXCZSj1HwoC8CtcjPHCZSj2PAGo8CtcjPHCZSj0PuKm8CtcjvHCZSj0PuKm8CtcjvHCZSj2PAGo8AAAAAHCZSj02LgI9CtcjvnCZSj0KmS+8rkfhvXCZSj0BIDy6rkfhvXCZSj0F9p08CtcjPnCZSj0KmS+8rkfhPXCZSj0BIDy6rkfhPXCZSj0F9p08CtcjPXCZSj2Uo/u8CtcjvXCZSj2Uo/u8VFVUVf8/AAD/f/8/VtWqKqoqqiqsqlRVAYD/PwHAAAD/f/8/AYD/P/8/AAABwAAAVFVUVayqVFWqKqoqVtWqKgAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/AAD/fwAAzz1TpRA3AAD/fwXsyS+tWhA3AAD/f/sTyS93Slx6ibVceg==")
+}]
 
 [node name="CobraMk3" type="MeshInstance3D"]
-transform = Transform3D( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 1 )
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("1")
