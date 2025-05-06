@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_4mwh7"]
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2_qxyp8"]
-[ext_resource type="Shader" uid="uid://b8xtqgbrgs4ed" path="res://WhaleRoom_Mike/Wata.gdshader" id="2_yeyis"]
 [ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="3_yeyis"]
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="4_n5okd"]
 [ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="5_0htqq"]
@@ -13,6 +12,7 @@
 [ext_resource type="Script" uid="uid://bn4xj07get8k6" path="res://behaviors/arrive.gd" id="10_pquvi"]
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="11_6qogq"]
 [ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="12_4mwh7"]
+[ext_resource type="Material" uid="uid://cr8yf6r3utjih" path="res://WhaleRoom_Mike/water_mat.tres" id="13_qxyp8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cgj76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -36,10 +36,6 @@ shader_parameter/normal_strength = 1.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qxyp8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n5okd"]
-render_priority = 0
-shader = ExtResource("2_yeyis")
 
 [sub_resource type="PrismMesh" id="PrismMesh_qxyp8"]
 
@@ -74,6 +70,8 @@ shader_parameter/albedo = Color(1, 1, 1, 0)
 shader_parameter/roughness = 0.15
 shader_parameter/normal_strength = 1.0
 shader_parameter/edge_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yeyis"]
 
 [node name="WhaleRoom" type="Node3D"]
 
@@ -138,11 +136,6 @@ transform = Transform3D(1.91069e-15, -1, 4.37114e-08, -4.37114e-08, -4.37114e-08
 [node name="CSGBox3D" type="CSGBox3D" parent="tank/StaticBody3D5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 94.494, 0)
 size = Vector3(200, 200, 1)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="tank/StaticBody3D5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.34465e-06, 94.494, -190.981)
-size = Vector3(200, 200, 1)
-material = SubResource("ShaderMaterial_n5okd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tank/StaticBody3D5"]
 shape = SubResource("BoxShape3D_qxyp8")
@@ -268,3 +261,9 @@ radius = 100.0
 radial_segments = 32
 rings = 16
 material = SubResource("ShaderMaterial_0htqq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 98.1228, 193.398, 0)
+material_override = ExtResource("13_qxyp8")
+mesh = SubResource("PlaneMesh_yeyis")
+surface_material_override/0 = ExtResource("13_qxyp8")
