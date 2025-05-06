@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://s2efpi5gqak5"]
+[gd_scene load_steps=8 format=3 uid="uid://s2efpi5gqak5"]
 
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="1_pf8in"]
 [ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="2_wg7fs"]
 [ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="3_mxwv7"]
+[ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="4_wg7fs"]
 [ext_resource type="Script" uid="uid://lqy7lve1pfps" path="res://behaviors/fp_controller.gd" id="4_yc1uw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wg7fs"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wg7fs"]
 
 [node name="Node3D" type="Node3D"]
 
@@ -27,6 +32,10 @@ spin_sides = 8
 [node name="Harmonic" type="Node" parent="creature/boid"]
 script = ExtResource("3_mxwv7")
 metadata/_custom_type_script = "uid://bctpwo8cerrgq"
+
+[node name="Avoidance" type="Node" parent="creature/boid"]
+script = ExtResource("4_wg7fs")
+metadata/_custom_type_script = "uid://s5pb8njisohn"
 
 [node name="CSGBox3D" type="CSGBox3D" parent="creature"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.13564)
@@ -58,3 +67,39 @@ polygon = PackedVector2Array(0, 0, 0.108307, 0.843262, 1.01495, 0.146317, 1, 0)
 transform = Transform3D(1, 0, 0, 0, 0.703506, 0.710689, 0, -0.710689, 0.703506, 0, 5.58868, 3.91039)
 script = ExtResource("4_yc1uw")
 speed = 10.0
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(1.88799e-14, -9.8812, 4.31921e-07, -4.31921e-07, -4.31921e-07, -9.8812, 9.8812, 0, -4.31921e-07, -0.222783, -0.35883, 9.79457)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("BoxShape3D_wg7fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
+mesh = SubResource("BoxMesh_wg7fs")
+
+[node name="StaticBody3D7" type="StaticBody3D" parent="."]
+transform = Transform3D(1.88799e-14, -9.8812, 4.31921e-07, -4.31921e-07, -4.31921e-07, -9.8812, 9.8812, 0, -4.31921e-07, -0.222783, -0.35883, -16.2741)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D7"]
+shape = SubResource("BoxShape3D_wg7fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D7"]
+mesh = SubResource("BoxMesh_wg7fs")
+
+[node name="StaticBody3D8" type="StaticBody3D" parent="."]
+transform = Transform3D(1.88799e-14, -9.8812, 4.31921e-07, -4.31921e-07, -4.31921e-07, -9.8812, 9.8812, 0, -4.31921e-07, -13.4743, -1.19604, -2.36445)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D8"]
+shape = SubResource("BoxShape3D_wg7fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D8"]
+mesh = SubResource("BoxMesh_wg7fs")
+
+[node name="StaticBody3D9" type="StaticBody3D" parent="."]
+transform = Transform3D(1.88799e-14, -9.8812, 4.31921e-07, -4.31921e-07, -4.31921e-07, -9.8812, 9.8812, 0, -4.31921e-07, 11.9162, -0.25005, -3.18533)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D9"]
+shape = SubResource("BoxShape3D_wg7fs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D9"]
+mesh = SubResource("BoxMesh_wg7fs")
