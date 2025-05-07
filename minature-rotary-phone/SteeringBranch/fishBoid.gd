@@ -21,16 +21,23 @@ var wander_target : Vector3
 var wander_timer = 0.0
 @export var wander_interval = 15.0
 @export var wander_radius = 20.0
+var current_behaviour # fetched from boidManager
 
 func wander(delta: float) -> Vector3:
-	print("Wander timer: " + str(wander_timer))
-	if wander_timer < wander_interval:
+	var distance_to_target = (wander_target - global_position).length()
+	# if timer expired OR close enough to last target, pick new one
+	if wander_timer < wander_interval and distance_to_target > 1.0:
 		wander_timer += delta
 	else:
+		print("Updating wander target...")
 		var rand_dir = Vector3(randf_range(-1.0, 1.0), randf_range(-0.5, 0.5), randf_range(-1.0, 1.0))
 		wander_target = global_position + rand_dir * wander_radius
 		wander_timer = 0.0
-	return (wander_target - global_position).normalized()
+	
+	var wander_vec = wander_target - global_position
+	if wander_vec.length() > 0.1:
+		return wander_vec.normalized()
+	else: return Vector3.ZERO
 
 func seek(target: Vector3) -> Vector3:
 	var desired_pos = (target - global_position).normalized() * speed
@@ -43,12 +50,16 @@ func flee():
 	pass
 
 func _ready():
-	# checking boidmanager node exists
-	#if boidManager == null and get_parent().has_method("get_neighbors"):
-		#boidManager = get_parent()
-	pass
+	current_behaviour = boidManager.current_behaviour
+	match current_behaviour:
+		boidManager.behaviourType.Wander:
+			var rand_dir = Vector3(randf_range(-1.0, 1.0), randf_range(-0.5, 0.5), randf_range(-1.0, 1.0))
+			wander_target = global_position + rand_dir * wander_radius
 
 func _physics_process(delta: float) -> void:
+	print(wander_timer)
+	var direction : Vector3
+	current_behaviour = boidManager.current_behaviour
 	var neighbors = get_neighbors() # get all other fish
 	var alignment = Vector3.ZERO
 	var cohesion = Vector3.ZERO
@@ -85,8 +96,6 @@ func _physics_process(delta: float) -> void:
 		+ cohesion * cohesion_weight
 		+ seperation * seperation_weight) 
 		
-		var direction
-		var current_behaviour = boidManager.current_behaviour
 		match current_behaviour:
 			boidManager.behaviourType.Wander:
 				var wander_dir = wander(delta)
@@ -100,9 +109,10 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity.limit_length(speed)
 	move_and_slide() # how we shmove
 	# rotate fish here
-	look_at(wander_target, Vector3.UP)
+	if direction.length() != 0: look_at(direction, Vector3.UP)
+	else: look_at(Vector3.FORWARD, Vector3.UP)
 	on_draw_gizmos()
-	print("Wander target: " + str(wander_target))
+	#print("Wander target: " + str(wander_target))
 
 # gets neighbors from boidManager
 func get_neighbors() -> Array:
