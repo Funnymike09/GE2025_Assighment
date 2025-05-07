@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dfd8tg0hn2wpo"
+path="res://.godot/imported/plane.obj-ccddcc8aea21c7b1271430c52de18ccd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/plane.obj-ccddcc8aea21c7b1271430c52de18ccd.mesh"]
+
+source_file="res://WhaleRoom_Mike/Final Room/plane.obj"
+dest_files=["res://.godot/imported/plane.obj-ccddcc8aea21c7b1271430c52de18ccd.mesh", "res://.godot/imported/plane.obj-ccddcc8aea21c7b1271430c52de18ccd.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

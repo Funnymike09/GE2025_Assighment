@@ -1,9 +1,9 @@
 shader_type spatial;
 
 // Water color
-uniform vec4 out_color: source_color = vec4(0.0, 0.2, 1.0, 1.0);
+uniform vec4 out_color: source_color = vec4(0.0, 0.2, 0.5, 1.0);
 // Amount of height for each triangle
-uniform float amount: hint_range(0.2, 5.0, 0.1) = 0.8;
+uniform float amount: hint_range(0.1, 5.0, 0.1) = 0.8;
 // The speed of the trangles height change
 uniform float speed: hint_range(0.1, 5.0, 0.1) = 1;
 // Beer factor (used to calculate how transparent the water is going to be) if equals to 0.0 then the alpha is going to be the out_color's alpha
@@ -17,7 +17,7 @@ float generateOffset(float x, float z, float val1, float val2, float time) {
 	float radiansX = ((mod(x + z * x * val1, amount) / amount) + (time * speed) * mod(x * 0.8 + z, 1.5)) * 2.0 * 3.14;
 	float radiansZ = ((mod(val2 * (z * x + x * z), amount) / amount) + (time * speed) * 2.0 * mod(x, 2.0)) * 2.0 * 3.14;
 	
-	return amount * 0.5 * (sin(radiansZ) * cos(radiansX));
+	return amount * 0.2 * (sin(radiansZ) * cos(radiansX));
 }
 
 vec3 applyDistortion(vec3 vertex, float time) {

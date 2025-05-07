@@ -1,14 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dfso08a0ar4sp"]
 
-[ext_resource type="Shader" uid="uid://ddrcy2amuoa8p" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="1_5v4ln"]
+[ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="1_5v4ln"]
 
 [resource]
 render_priority = 0
 shader = ExtResource("1_5v4ln")
-shader_parameter/out_color = Color(0.28603, 0.361592, 0.574131, 1)
-shader_parameter/amount = 0.8
-shader_parameter/speed = 1.0
-shader_parameter/beer_factor = -0.04
-shader_parameter/metallic = 0.6
-shader_parameter/specular = 0.5
+shader_parameter/albedo = Color(1, 1, 1, 0)
 shader_parameter/roughness = 0.2
+shader_parameter/normal_strength = 1.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
