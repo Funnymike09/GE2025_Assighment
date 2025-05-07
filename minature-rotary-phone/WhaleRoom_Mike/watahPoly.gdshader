@@ -34,7 +34,7 @@ void vertex() {
 
 void fragment() {
 	vec3 world_vertex = (INV_VIEW_MATRIX * vec4(VERTEX,1.0)).xyz;
-   NORMAL = -normalize(cross(dFdx(world_vertex), dFdy(world_vertex)));
+   NORMAL = normalize(cross(dFdx(world_vertex), dFdy(world_vertex)));
 	METALLIC = metallic;
 	SPECULAR = specular;
 	ROUGHNESS = roughness;

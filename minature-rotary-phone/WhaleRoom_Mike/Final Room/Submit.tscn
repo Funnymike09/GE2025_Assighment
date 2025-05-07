@@ -1,0 +1,244 @@
+[gd_scene load_steps=32 format=3 uid="uid://crmot4j22fltw"]
+
+[ext_resource type="Script" uid="uid://c64x267jj47lb" path="res://SteeringBranch/cameraController.gd" id="1_dvjpt"]
+[ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="2_xmup5"]
+[ext_resource type="Script" uid="uid://cmw6n17mebkcx" path="res://behaviors/boid.gd" id="3_5ag7w"]
+[ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="4_qaut4"]
+[ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="5_gfsgr"]
+[ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="6_6tak8"]
+[ext_resource type="Script" uid="uid://ci8facjqq07ft" path="res://behaviors/constrain.gd" id="7_5y5xs"]
+[ext_resource type="Script" uid="uid://bqb47mif0r5vt" path="res://behaviors/noise_wander.gd" id="8_0dhei"]
+[ext_resource type="Script" uid="uid://b6jj7yxhu2hi1" path="res://behaviors/follow_path.gd" id="9_bnf3l"]
+[ext_resource type="Script" uid="uid://c2d7mphmtn1jv" path="res://behaviors/seek.gd" id="10_r735p"]
+[ext_resource type="Script" uid="uid://bn4xj07get8k6" path="res://behaviors/arrive.gd" id="11_vhrcu"]
+[ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="12_mbhyr"]
+[ext_resource type="Material" uid="uid://dfso08a0ar4sp" path="res://WhaleRoom_Mike/Bowl mat.tres" id="13_0dhei"]
+[ext_resource type="Shader" uid="uid://ddrcy2amuoa8p" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="13_xmup5"]
+[ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="15_r735p"]
+[ext_resource type="ArrayMesh" uid="uid://cstxfga6mvb1e" path="res://WhaleRoom_Mike/Bowl.obj" id="16_vhrcu"]
+[ext_resource type="ArrayMesh" uid="uid://dg167bjpr2b32" path="res://WhaleRoom_Mike/Final Room/Bowl2.obj" id="18_mbhyr"]
+[ext_resource type="Material" uid="uid://baw1fa3du13xh" path="res://WhaleRoom_Mike/polyWatar.tres" id="19_n2pol"]
+
+[sub_resource type="Curve3D" id="Curve3D_dvjpt"]
+resource_local_to_scene = true
+closed = true
+bake_interval = 0.01
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 64.9283, 145.12, -26.0588, 0, 0, 0, 0, 0, 0, 15.525, 127.36, 30.6206, 0, 0, 0, 0, 0, 0, 44.6909, 67.7007, -105.638, 0, 0, 0, 0, 0, 0, 0, 73.6721, 0, 0, 0, 0, 0, 0, 0, -67.3926, 0, -100.851, 0, 0, 0, 0, 0, 0, -0.387939, 127.65, 29.9612, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n2pol"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_2l1ob"]
+sky_material = SubResource("ProceduralSkyMaterial_n2pol")
+
+[sub_resource type="Environment" id="Environment_08sxa"]
+background_mode = 2
+sky = SubResource("Sky_2l1ob")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PrismMesh" id="PrismMesh_28dyk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1mhke"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_7q0qi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u464f"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hm0b8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gk2eq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5ag7w"]
+render_priority = 0
+shader = ExtResource("15_r735p")
+shader_parameter/albedo = Color(1, 1, 1, 0)
+shader_parameter/roughness = 0.2
+shader_parameter/normal_strength = 1.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2l1ob"]
+render_priority = 0
+shader = ExtResource("13_xmup5")
+shader_parameter/out_color = Color(0.380369, 0.322231, 0.585562, 1)
+shader_parameter/amount = 0.2
+shader_parameter/speed = 0.6
+shader_parameter/beer_factor = -0.4
+shader_parameter/metallic = 0.6
+shader_parameter/specular = 0.5
+shader_parameter/roughness = 0.2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5y5xs"]
+size = Vector2(30, 30)
+subdivide_width = 32
+subdivide_depth = 16
+
+[node name="Submit" type="Node3D"]
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://FmodBank/Desktop/Master.bank"]
+
+[node name="centra" type="Marker3D" parent="."]
+
+[node name="Path3D" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4845, 39.9587)
+curve = SubResource("Curve3D_dvjpt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_08sxa")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="creature" type="Node" parent="."]
+
+[node name="spineanimator" type="Node" parent="creature" node_paths=PackedStringArray("bones")]
+script = ExtResource("2_xmup5")
+bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../tail")]
+
+[node name="boid" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748631, 17.538, 17.8523)
+script = ExtResource("3_5ag7w")
+max_force = 50
+banking = 0.07
+damping = 0.3
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="creature/boid"]
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("PrismMesh_28dyk")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("4_qaut4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/boid"]
+shape = SubResource("BoxShape3D_1mhke")
+
+[node name="Avoidance" type="Node" parent="creature/boid"]
+script = ExtResource("5_gfsgr")
+
+[node name="Harmonic" type="Node" parent="creature/boid"]
+script = ExtResource("6_6tak8")
+frequency = 0.5
+distance = 10
+weight = 6.0
+
+[node name="Constrain" type="Node" parent="creature/boid"]
+script = ExtResource("7_5y5xs")
+radius = 200.0
+center_path = NodePath("../../../centra")
+weight = 0.5
+
+[node name="NoiseWander" type="Node" parent="creature/boid"]
+script = ExtResource("8_0dhei")
+radius = 50.0
+amplitude = 90
+distance = 100
+draw_gizmos = false
+
+[node name="PathFollow3D" type="Node" parent="creature/boid" node_paths=PackedStringArray("path")]
+script = ExtResource("9_bnf3l")
+path = NodePath("../../../Path3D")
+waypoint_seek_distance = 5
+weight = 3.0
+
+[node name="Seek" type="Node" parent="creature/boid"]
+script = ExtResource("10_r735p")
+draw_gizmos = false
+enabled = false
+
+[node name="Arrive" type="Node" parent="creature/boid"]
+script = ExtResource("11_vhrcu")
+draw_gizmos = false
+enabled = false
+
+[node name="UserSteering" type="Node" parent="creature/boid"]
+script = ExtResource("12_mbhyr")
+draw_gizmos = false
+enabled = false
+
+[node name="Camera3D" type="Camera3D" parent="creature/boid"]
+transform = Transform3D(-0.185293, -0.0108835, 0.0188507, -6.62871e-09, 0.161572, 0.0932834, -0.0217669, 0.0926463, -0.160468, -0.00110839, 0.734069, 0.493389)
+current = true
+fov = 78.4
+script = ExtResource("1_dvjpt")
+
+[node name="FmodListener3D" type="FmodListener3D" parent="creature/boid/Camera3D"]
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="creature/boid"]
+event_name = "event:/Amiance/Surface"
+event_guid = "{813ea493-2fc1-40ca-949a-0b5aa418a00a}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.708786, 0.0744972)
+
+[node name="tail" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748631, 17.538, 14.5393)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="creature/tail"]
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, 1, 0, -2, -4.37114e-08, 0, 0, -0.504121)
+mesh = SubResource("PrismMesh_7q0qi")
+skeleton = NodePath("")
+surface_material_override/0 = ExtResource("4_qaut4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/tail"]
+shape = SubResource("BoxShape3D_u464f")
+disabled = true
+
+[node name="body1" type="CharacterBody3D" parent="creature"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748631, 17.538, 15.9261)
+
+[node name="MeshInstance4" type="MeshInstance3D" parent="creature/body1"]
+mesh = SubResource("BoxMesh_hm0b8")
+skeleton = NodePath("../../..")
+surface_material_override/0 = ExtResource("4_qaut4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body1"]
+shape = SubResource("BoxShape3D_gk2eq")
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31646, 4.45502, 76.8265)
+material_override = ExtResource("19_n2pol")
+radius = 30.0
+radial_segments = 64
+rings = 32
+material = ExtResource("13_0dhei")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D"]
+transform = Transform3D(10.0905, 0, 0, 0, 16.1703, 0, 0, 0, 17.7982, -3.01737, 22.95, -0.0520096)
+operation = 2
+flip_faces = true
+size = Vector3(5.92004, 1.02954, 3.09174)
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.354599, 18.4852, 18.2109)
+radius = 32.0
+radial_segments = 64
+rings = 32
+material = SubResource("ShaderMaterial_5ag7w")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, -0.000133433, 0.000270616, 0.00013326, 1, 0.000590638, -0.000270702, -0.000590599, 1, -0.00765872, 23.4426, 86.8252)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.8932, 0, 7.17909)
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+
+[node name="Bowl" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.00158, 0, 0, 0, 1.00158, 0, 0, 0, 1.00158, -62.2798, 53.2675, 78.176)
+mesh = ExtResource("16_vhrcu")
+surface_material_override/0 = SubResource("ShaderMaterial_2l1ob")
+
+[node name="Bowl2" type="MeshInstance3D" parent="."]
+transform = Transform3D(20.9206, 0, 0, 0, 20.9206, 0, 0, 0, 20.9206, -61.5662, 53.2098, 149.185)
+mesh = ExtResource("18_mbhyr")
+surface_material_override/0 = ExtResource("19_n2pol")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.08243, 0, 0, 0, 1.08243, 0, 0, 0, 1.08243, 1.68939, 19.9985, 80.9099)
+material_override = ExtResource("19_n2pol")
+mesh = SubResource("PlaneMesh_5y5xs")

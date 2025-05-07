@@ -6,9 +6,9 @@
 render_priority = 0
 shader = ExtResource("1_ggl0h")
 shader_parameter/out_color = Color(0, 0.2, 1, 1)
-shader_parameter/amount = 0.8
-shader_parameter/speed = 1.0
-shader_parameter/beer_factor = 0.2
-shader_parameter/metallic = 0.6
-shader_parameter/specular = 0.1
-shader_parameter/roughness = 1.0
+shader_parameter/amount = 0.7
+shader_parameter/speed = 1.1
+shader_parameter/beer_factor = -0.2
+shader_parameter/metallic = 0.605
+shader_parameter/specular = 1.425
+shader_parameter/roughness = 0.145

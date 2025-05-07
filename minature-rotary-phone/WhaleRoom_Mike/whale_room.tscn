@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="11_6qogq"]
 [ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="12_4mwh7"]
 [ext_resource type="Material" uid="uid://cr8yf6r3utjih" path="res://WhaleRoom_Mike/water_mat.tres" id="13_qxyp8"]
-[ext_resource type="Shader" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="14_yeyis"]
+[ext_resource type="Shader" uid="uid://ddrcy2amuoa8p" path="res://WhaleRoom_Mike/watahPoly.gdshader" id="14_yeyis"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_cgj76"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -165,6 +165,12 @@ shape = SubResource("BoxShape3D_qxyp8")
 script = ExtResource("1_4mwh7")
 bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../tail")]
 
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="creature"]
+event_name = "event:/Whale/SurfaceExhale"
+event_guid = "{f25c3e78-a583-437b-8d70-6fb5e5bf2649}"
+autoplay = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456073, 17.1303, 0)
+
 [node name="boid" type="CharacterBody3D" parent="creature"]
 transform = Transform3D(5.36001, 0, 0, 0, 5.36001, 0, 0, 0, 5.36001, 0.748631, 17.538, 25.9134)
 script = ExtResource("2_qxyp8")
@@ -247,10 +253,6 @@ surface_material_override/0 = ExtResource("3_yeyis")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="creature/body1"]
 shape = SubResource("BoxShape3D_on58n")
-
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="creature"]
-event_guid = "{00000000-0002-0000-0300-000026000000}"
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456073, 17.1303, 0)
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.4845, 39.9587)
