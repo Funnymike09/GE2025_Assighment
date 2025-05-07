@@ -1,74 +1,118 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8jbmxqe25ujq"]
+[gd_scene load_steps=9 format=3 uid="uid://c8jbmxqe25ujq"]
 
 [ext_resource type="Script" uid="uid://p16pig53abtb" path="res://SteeringBranch/fishBoid.gd" id="1_u2k7x"]
 [ext_resource type="Script" uid="uid://ca3v58odo31a" path="res://SteeringBranch/boidManager.gd" id="1_yv7un"]
 [ext_resource type="Script" uid="uid://c64x267jj47lb" path="res://SteeringBranch/cameraController.gd" id="3_rld20"]
 
-[sub_resource type="SphereMesh" id="SphereMesh_yv7un"]
+[sub_resource type="PrismMesh" id="PrismMesh_rld20"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_rld20"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_v4ce8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rld20"]
+albedo_color = Color(0.2, 0.721569, 0.607843, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_v4ce8"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_gi26m"]
 
 [node name="SteeringTestDaragh" type="Node3D"]
 script = ExtResource("1_yv7un")
 
 [node name="Fish" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_u2k7x")
+speed = null
+vision_radius = null
+seperation_distance = null
+alignment_weight = null
+cohesion_weight = null
+seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
-mesh = SubResource("SphereMesh_yv7un")
+mesh = SubResource("PrismMesh_rld20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish"]
-shape = SubResource("SphereShape3D_rld20")
+shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish2" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 0, 2.01661)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 0.5, 2.01661)
 script = ExtResource("1_u2k7x")
+speed = null
+vision_radius = null
+seperation_distance = null
+alignment_weight = null
+cohesion_weight = null
+seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
-mesh = SubResource("SphereMesh_yv7un")
+mesh = SubResource("PrismMesh_rld20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish2"]
-shape = SubResource("SphereShape3D_rld20")
+shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish3" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0, -1.60142)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.5, -1.60142)
 script = ExtResource("1_u2k7x")
+speed = null
+vision_radius = null
+seperation_distance = null
+alignment_weight = null
+cohesion_weight = null
+seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
-mesh = SubResource("SphereMesh_yv7un")
+mesh = SubResource("PrismMesh_rld20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish3"]
-shape = SubResource("SphereShape3D_rld20")
+shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish4" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9573, 0, 1.83867)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9573, 0.5, 1.83867)
 script = ExtResource("1_u2k7x")
+speed = null
+vision_radius = null
+seperation_distance = null
+alignment_weight = null
+cohesion_weight = null
+seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
-mesh = SubResource("SphereMesh_yv7un")
+mesh = SubResource("PrismMesh_rld20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish4"]
-shape = SubResource("SphereShape3D_rld20")
+shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish5" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, 0, -1.18624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, 0.5, -1.18624)
 script = ExtResource("1_u2k7x")
+speed = null
+vision_radius = null
+seperation_distance = null
+alignment_weight = null
+cohesion_weight = null
+seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
-mesh = SubResource("SphereMesh_yv7un")
+mesh = SubResource("PrismMesh_rld20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish5"]
-shape = SubResource("SphereShape3D_rld20")
+shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish6" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 0, -0.118623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 0.5, -0.118623)
 script = ExtResource("1_u2k7x")
+speed = null
+vision_radius = null
+seperation_distance = null
+alignment_weight = null
+cohesion_weight = null
+seperation_weight = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
-mesh = SubResource("SphereMesh_yv7un")
+mesh = SubResource("PrismMesh_rld20")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Fish6"]
-shape = SubResource("SphereShape3D_rld20")
+shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(0.369747, -0.464566, 0.804652, 0, 0.866025, 0.5, -0.929133, -0.184873, 0.32021, 16.9304, 7.99669, 5.0431)
@@ -78,3 +122,13 @@ script = ExtResource("3_rld20")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891553, 0.452917, 0, -0.452917, 0.891553, 0.732742, 109.831, -227.885)
+
+[node name="Plane" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Plane"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_rld20")
+mesh = SubResource("PlaneMesh_v4ce8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plane"]
+shape = SubResource("WorldBoundaryShape3D_gi26m")

@@ -2,10 +2,10 @@ extends Node3D
 
 enum current_behaviour # state machine for different behaviours
 {
-	Wander, # standard behaviour state
-	#Seek, # if something interesting look for it
-	#Arrive, # when close to seek target
-	Flee # when close to whale
+	Wander,
+	Seek,
+	Arrive,
+	Flee
 }
 
 # our list of fish! :D
