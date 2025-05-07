@@ -1,12 +1,14 @@
 extends Node3D
 
-enum current_behaviour # state machine for different behaviours
+enum behaviourType # state machine for different behaviours
 {
-	Wander,
-	Seek,
-	Arrive,
-	Flee
+	Wander, # standard behaviour state
+	Seek, # if something interesting look for it
+	Arrive, # when close to seek target
+	Flee # when close to whale
 }
+
+var current_behaviour : behaviourType = behaviourType.Wander
 
 # our list of fish! :D
 var fish_list: Array[CharacterBody3D] = []
