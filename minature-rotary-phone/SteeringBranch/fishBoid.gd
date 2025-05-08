@@ -5,61 +5,59 @@ extends CharacterBody3D
 @export var vision_radius: = 10.0 # fish viewing distance
 @export var seperation_distance : = 6.0 # distance to keep between fish
 
-#BOID variables - can change these to affect how they prioritise each behavior
+#BOID steering modify variables - can change these to affect how they prioritise each behavior
 @export var alignment_weight: = 1.0
 @export var cohesion_weight: = 1.0
 @export var seperation_weight: = 1.5
+@export var wander_weight = 1.0
+
+"""# vars referencing the bowl's centre and radius
+@export var bowl_centre: Vector3
+@export var bowl_radius: float"""
 
 # ref to manager script
-@onready var boidManager = get_parent()
+var boidManager
 
 # optional local targets
 #var interest_pos : Vector3
 var threat_pos : Vector3
-# wander settings
+var current_behaviour
+@export var wander_target : Vector3
+"""# wander settings
 var wander_target : Vector3
 var wander_timer = 0.0
 @export var wander_interval = 15.0
-@export var wander_radius = 20.0
-var current_behaviour # fetched from boidManager
-
-func wander(delta: float) -> Vector3:
-	var distance_to_target = (wander_target - global_position).length()
-	# if timer expired OR close enough to last target, pick new one
-	if wander_timer < wander_interval and distance_to_target > 1.0:
-		wander_timer += delta
-	else:
-		print("Updating wander target...")
-		var rand_dir = Vector3(randf_range(-1.0, 1.0), randf_range(-0.5, 0.5), randf_range(-1.0, 1.0))
-		wander_target = global_position + rand_dir * wander_radius
-		wander_timer = 0.0
-	
-	var wander_vec = wander_target - global_position
-	if wander_vec.length() > 0.1:
-		return wander_vec.normalized()
-	else: return Vector3.ZERO
-
-func seek(target: Vector3) -> Vector3:
-	var desired_pos = (target - global_position).normalized() * speed
-	return (desired_pos - velocity).limit_length(speed)
-
-func arrive(target: Vector3) -> Vector3:
-	return Vector3.ZERO # temp
-
-func flee():
-	pass
+@export var wander_radius = 20.0"""
 
 func _ready():
-	current_behaviour = boidManager.current_behaviour
-	match current_behaviour:
-		boidManager.behaviourType.Wander:
-			var rand_dir = Vector3(randf_range(-1.0, 1.0), randf_range(-0.5, 0.5), randf_range(-1.0, 1.0))
-			wander_target = global_position + rand_dir * wander_radius
+	# checking boidmanager node exists
+	if boidManager == null and get_parent().has_method("get_neighbors"):
+		boidManager = get_parent()
+		current_behaviour = boidManager.current_behaviour
+		"""if current_behaviour == boidManager.behaviourType.Wander:
+			wander_calc()
+			print(wander_target)"""
 
 func _physics_process(delta: float) -> void:
-	print(wander_timer)
-	var direction : Vector3
-	current_behaviour = boidManager.current_behaviour
+	"""if current_behaviour == boidManager.behaviourType.Wander:
+		if wander_timer >= wander_interval:
+			wander_timer = 0
+			wander_calc()
+		wander_timer += delta"""
+	# limit length of velocity to our speed variable
+	var steer_target = boid_calc()
+	"""var wander_target = wander_calc()"""
+	var target = (steer_target + wander_target * wander_weight).normalized()
+	velocity = velocity.lerp(target * speed, 0.1)
+	velocity = velocity.limit_length(speed)
+	move_and_slide() # how we shmove
+	
+	# rotate fish here
+	look_at(Vector3.FORWARD, Vector3.UP)
+	on_draw_gizmos()
+	#print("Wander target: " + str(wander_target))
+
+func boid_calc() -> Vector3:
 	var neighbors = get_neighbors() # get all other fish
 	var alignment = Vector3.ZERO
 	var cohesion = Vector3.ZERO
@@ -92,27 +90,28 @@ func _physics_process(delta: float) -> void:
 		# seperation calced above
 		
 		# combine behaviours into direction vector
-		var boid_dir = (alignment * alignment_weight
+		var direction = (alignment * alignment_weight
 		+ cohesion * cohesion_weight
 		+ seperation * seperation_weight) 
 		
-		match current_behaviour:
-			boidManager.behaviourType.Wander:
-				var wander_dir = wander(delta)
-				direction = boid_dir + wander_dir * 0.5
-		
 		if direction.length() > 0: # make sure the direction actually has a length
 			direction = direction.normalized() # now direction's length isnt 0 we can safely normalize
+		return direction
 		#lerp towards the new dir
-		velocity = velocity.lerp(direction * speed, 0.1) # weight low to keep smooth movement hopefully
-	# limit length of velocity to our speed variable
-	velocity = velocity.limit_length(speed)
-	move_and_slide() # how we shmove
-	# rotate fish here
-	if direction.length() != 0: look_at(direction, Vector3.UP)
-	else: look_at(Vector3.FORWARD, Vector3.UP)
-	on_draw_gizmos()
-	#print("Wander target: " + str(wander_target))
+	# basically a catch statement if obj has no neighbors just go forward
+	return Vector3.FORWARD
+
+"""func wander_calc():
+	print
+	var t = randf() * TAU
+	var p = acos(randf() * 2.0 - 1.0)
+	
+	var x = sin(p) * cos(t)
+	var y = sin(p) * sin(t)
+	var z = cos(p)
+	var dir = Vector3(x, y, z)
+	var r = pow(randf(), 1.0 / 3.0) * bowl_radius
+	wander_target = bowl_centre + dir * r"""
 
 # gets neighbors from boidManager
 func get_neighbors() -> Array:
