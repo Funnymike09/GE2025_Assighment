@@ -43,11 +43,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		
+	_depthCeck()
 
 	if can_move:
 		var v = Vector3.ZERO
-		_depthCeck()
 		var mult = 1
 		if Input.is_key_pressed(KEY_SHIFT):
 			mult = 3
@@ -74,18 +73,19 @@ func _process(delta):
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	#$FmodEventEmitter3D.play()
-	$deepwata.play_one_shot()
+	$deepwata.play()
 	inBowl = true
 	if inBowl:
 		#_depthCeck()
-		#$Surfaces.set_parameter('Deep',distance)
 
 		print_debug('in bowl playing')
 	
 	env.environment.volumetric_fog_density = 0.02
 	
 func _depthCeck()-> void:
+	Surface.position = Vector3($".".position.x, Surface.position.y,$".".position.z)
 	#distance = global_position.distance_to(Surface.global_position)
+	$Surfaces.set_parameter('Deep',distance)
 	distance = clampi(global_position.distance_to(Surface.global_position),0,20)
 	print_debug(distance)
 
@@ -94,4 +94,4 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 	$deepwata.play()
 	inBowl = false
 	env.environment.volumetric_fog_density = 0.0
-	#$Surfaces.set_parameter('Deep',0)
+	$Surfaces.set_parameter('Deep',0)

@@ -88,7 +88,7 @@ points = PackedVector3Array(0.151871, -0.13976, 0.971938, -0.182726, -0.108617, 
 [node name="Player" parent="." node_paths=PackedStringArray("env", "Surface") instance=ExtResource("1_6tak8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.888981)
 env = NodePath("../WorldEnvironment")
-Surface = NodePath("../CSGSphere3D/Bowl2/Node3D")
+Surface = NodePath("../surface ref")
 
 [node name="Area3D" type="Area3D" parent="Player"]
 
@@ -108,7 +108,6 @@ fmod_parameters/Deep = 0.0
 fmod_parameters/Deep/variant_type = 3
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Player"]
-weight = 2.0
 
 [node name="camera follower" type="CharacterBody3D" parent="."]
 script = ExtResource("3_5ag7w")
@@ -287,14 +286,14 @@ surface_material_override/0 = ExtResource("19_n2pol")
 shape = SubResource("ConvexPolygonShape3D_bnf3l")
 debug_color = Color(0.867808, 0.150859, 0.778591, 0.42)
 
-[node name="Node3D" type="Node3D" parent="CSGSphere3D/Bowl2"]
-transform = Transform3D(189.968, 0, 0, 0, 1, 0, 0, 0, 182.068, 0, 0.317511, 0)
-
 [node name="bowleInsider" parent="CSGSphere3D/Bowl2" instance=ExtResource("22_vhrcu")]
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, 0, -0.216076, 0)
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://FmodBank/Desktop/WATAS.bank", "res://FmodBank/Desktop/Master.strings.bank"]
+bank_paths = ["res://FmodBank/Desktop/Master.bank"]
+
+[node name="surface ref" type="Node3D" parent="."]
+transform = Transform3D(5121.16, 0, 0, 0, 26.958, 0, 0, 0, 4908.19, 0.170817, 7.62465, 2.48627)
 
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="Player" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="creature/boid/audioBreach" method="_on_area_3d_area_entered"]
