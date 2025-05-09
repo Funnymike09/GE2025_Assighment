@@ -11,6 +11,7 @@ extends Node3D
 @export var env:WorldEnvironment
 @export var Surface: Node3D
 var distance
+@export var speaker: FmodEventEmitter3D
 
 
 var controlling = true
@@ -42,12 +43,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if inBowl:
-		_depthCeck()
-		$FmodEventEmitter3D.set_parameter_by_id(-2825082069586755593,10)
-		print_debug()
-	else:
-		$FmodEventEmitter3D.set_parameter_by_id(-2825082069586755593,0)
 		
 
 	if can_move:
@@ -81,6 +76,11 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	#$FmodEventEmitter3D.play()
 	$FmodEventEmitter3D.play()
 	inBowl = true
+	if inBowl:
+		#_depthCeck()
+		$FmodEventEmitter3D.get_parameter('DeepLVL')
+		$FmodEventEmitter3D.set_parameter('DeepLVL',10)
+		print_debug()
 	
 	env.environment.volumetric_fog_density = 0.02
 	
@@ -94,4 +94,5 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 	$FmodEventEmitter3D.stop()
 	inBowl = false
 	env.environment.volumetric_fog_density = 0.0
-	
+	$FmodEventEmitter3D.get_parameter('DeepLVL')
+	$FmodEventEmitter3D.set_parameter('DeepLVL',0)

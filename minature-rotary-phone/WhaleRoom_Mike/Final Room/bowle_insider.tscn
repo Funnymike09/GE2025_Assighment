@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cum5ivwqduljn"]
+
+[ext_resource type="PackedScene" uid="uid://dry8s3lmcvah0" path="res://WhaleRoom_Mike/Final Room/bowleInsider.blend" id="1_hassw"]
+[ext_resource type="Material" uid="uid://baw1fa3du13xh" path="res://WhaleRoom_Mike/polyWatar.tres" id="2_t6g8m"]
+
+[node name="bowleInsider" instance=ExtResource("1_hassw")]
+
+[node name="Sphere" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_t6g8m")
