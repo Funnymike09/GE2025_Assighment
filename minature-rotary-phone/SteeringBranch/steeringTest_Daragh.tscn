@@ -33,6 +33,7 @@ wander_interval = 3.0
 [node name="Fish" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
 mesh = SubResource("PrismMesh_rld20")
@@ -43,6 +44,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 0.5, 2.01661)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
 mesh = SubResource("PrismMesh_rld20")
@@ -53,6 +55,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish3" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.5, -1.60142)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
 mesh = SubResource("PrismMesh_rld20")
@@ -63,6 +66,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish4" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9573, 0.5, 1.83867)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
 mesh = SubResource("PrismMesh_rld20")
@@ -73,6 +77,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish5" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, 0.5, -1.18624)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
 mesh = SubResource("PrismMesh_rld20")
@@ -83,6 +88,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish6" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 0.5, -0.118623)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
 mesh = SubResource("PrismMesh_rld20")
@@ -93,6 +99,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish7" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42269, 0.5, -2.35332)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish7"]
 mesh = SubResource("PrismMesh_rld20")
@@ -103,6 +110,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish8" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90155, 0.5, 1.31796)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish8"]
 mesh = SubResource("PrismMesh_rld20")
@@ -113,6 +121,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish9" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445747, 0.5, -3.94952)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish9"]
 mesh = SubResource("PrismMesh_rld20")
@@ -123,6 +132,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish10" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50724, 0.5, -3.7899)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish10"]
 mesh = SubResource("PrismMesh_rld20")

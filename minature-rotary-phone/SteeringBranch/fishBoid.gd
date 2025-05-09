@@ -2,7 +2,6 @@ extends CharacterBody3D
 
 # Tweakable behaviour variables
 @export var speed: = 5.0 # base speed
-@export var vision_radius: = 10.0 # fish viewing distance
 @export var seperation_distance : = 6.0 # distance to keep between fish
 
 #BOID steering modify variables - can change these to affect how they prioritise each behavior
@@ -20,17 +19,24 @@ var boidManager
 var threat_pos : Vector3
 var current_behaviour
 @export var wander_target : Vector3
+var vision_radius : float
+var avoiding : bool
 
 func _ready():
 	# checking boidmanager node exists
 	if boidManager == null and get_parent().has_method("get_neighbors"):
 		boidManager = get_parent()
 		current_behaviour = boidManager.current_behaviour
+		vision_radius = boidManager.vision_radius
 
 func _physics_process(delta: float) -> void:
 	# limit length of velocity to our speed variable
 	var steer_target = boid_calc()
-	var target = (steer_target + wander_target * wander_weight).normalized()
+	var target
+	if (!avoiding):
+		target = (steer_target + wander_target * wander_weight).normalized()
+	else:
+		target = (steer_target + (boidManager.bounds_center - global_position)).normalized()
 	velocity = velocity.lerp(target * speed, 0.1)
 	velocity = velocity.limit_length(speed)
 	move_and_slide() # how we shmove
@@ -94,12 +100,5 @@ func get_neighbors() -> Array:
 		current = current.get_parent()
 	return [] # returns the whole array
 
-func get_group_center() -> Vector3:
-	var avg_pos = Vector3.ZERO
-	for fish in boidManager.fish_list:
-		avg_pos += fish.global_position
-	avg_pos /= boidManager.fish_list.size()
-	return avg_pos
-
 func on_draw_gizmos():
-	DebugDraw3D.draw_line(global_transform.origin, global_transform * (Vector3.BACK * 10))
+	DebugDraw3D.draw_line(global_transform.origin, global_transform * (Vector3.FORWARD * 10))
