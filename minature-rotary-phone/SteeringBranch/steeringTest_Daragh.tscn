@@ -27,7 +27,8 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 [node name="SteeringTestDaragh" type="Node3D"]
 script = ExtResource("1_yv7un")
 bounds_radius = 100.0
-wander_interval = 8.0
+water_surface_level = 80.0
+wander_interval = 3.0
 
 [node name="Fish" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
@@ -138,6 +139,7 @@ transform = Transform3D(0.369747, -0.464566, 0.804652, 0, 0.866025, 0.5, -0.9291
 current = true
 fov = 78.4
 script = ExtResource("3_rld20")
+follow_distance = 30.0
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Camera3D"]
 

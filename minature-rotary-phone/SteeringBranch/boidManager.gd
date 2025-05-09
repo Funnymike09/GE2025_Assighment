@@ -14,6 +14,7 @@ var current_behaviour : behaviourType = behaviourType.Wander
 var fish_list: Array[CharacterBody3D] = []
 @export var bounds_center = Vector3.ZERO # center point of the fish' boundaries
 @export var bounds_radius = 25.0 # radius of their boundaries
+@export var water_surface_level : float
 
 #var wander_target : Vector3
 var wander_timer = 0.0
@@ -42,16 +43,19 @@ func _physics_process(delta: float) -> void:
 
 func wander_calc():
 	print("wander_calc run")
+	# GET RANDOM POINT WITHIN SPHERE
 	var t = randf() * TAU
 	var p = acos(randf() * 2.0 - 1.0)
 	
 	var x = sin(p) * cos(t)
 	var y = sin(p) * sin(t)
+	y = clamp(y, bounds_center.y - bounds_radius, water_surface_level) # CLAMP Y VALUE BETWEEN SURFACE WATER LEVEL AND LOWEST POINT IN BOWL
 	var z = cos(p)
 	var dir = Vector3(x, y, z)
 	var r = pow(randf(), 1.0 / 3.0) * bounds_radius
+	var new_target = bounds_center + dir * r
 	for fish in fish_list:
-		fish.wander_target = bounds_center + dir * r
+		fish.wander_target = new_target
 # let the fish see where their neighbors are
 func get_neighbors(fish: CharacterBody3D) -> Array[CharacterBody3D]:
 	return fish_list

@@ -10,10 +10,7 @@ extends CharacterBody3D
 @export var cohesion_weight: = 1.0
 @export var seperation_weight: = 1.5
 @export var wander_weight = 1.0
-
-"""# vars referencing the bowl's centre and radius
-@export var bowl_centre: Vector3
-@export var bowl_radius: float"""
+@export var rotation_speed = 3.0
 
 # ref to manager script
 var boidManager
@@ -23,37 +20,24 @@ var boidManager
 var threat_pos : Vector3
 var current_behaviour
 @export var wander_target : Vector3
-"""# wander settings
-var wander_target : Vector3
-var wander_timer = 0.0
-@export var wander_interval = 15.0
-@export var wander_radius = 20.0"""
 
 func _ready():
 	# checking boidmanager node exists
 	if boidManager == null and get_parent().has_method("get_neighbors"):
 		boidManager = get_parent()
 		current_behaviour = boidManager.current_behaviour
-		"""if current_behaviour == boidManager.behaviourType.Wander:
-			wander_calc()
-			print(wander_target)"""
 
 func _physics_process(delta: float) -> void:
-	"""if current_behaviour == boidManager.behaviourType.Wander:
-		if wander_timer >= wander_interval:
-			wander_timer = 0
-			wander_calc()
-		wander_timer += delta"""
 	# limit length of velocity to our speed variable
 	var steer_target = boid_calc()
-	"""var wander_target = wander_calc()"""
 	var target = (steer_target + wander_target * wander_weight).normalized()
 	velocity = velocity.lerp(target * speed, 0.1)
 	velocity = velocity.limit_length(speed)
 	move_and_slide() # how we shmove
 	
 	# rotate fish here
-	look_at(Vector3.FORWARD, Vector3.UP)
+	var new_transform = transform.looking_at(wander_target, Vector3.UP)
+	transform = transform.interpolate_with(new_transform, rotation_speed * delta)
 	on_draw_gizmos()
 	#print("Wander target: " + str(wander_target))
 
@@ -100,18 +84,6 @@ func boid_calc() -> Vector3:
 		#lerp towards the new dir
 	# basically a catch statement if obj has no neighbors just go forward
 	return Vector3.FORWARD
-
-"""func wander_calc():
-	print
-	var t = randf() * TAU
-	var p = acos(randf() * 2.0 - 1.0)
-	
-	var x = sin(p) * cos(t)
-	var y = sin(p) * sin(t)
-	var z = cos(p)
-	var dir = Vector3(x, y, z)
-	var r = pow(randf(), 1.0 / 3.0) * bowl_radius
-	wander_target = bowl_centre + dir * r"""
 
 # gets neighbors from boidManager
 func get_neighbors() -> Array:
