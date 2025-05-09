@@ -26,7 +26,6 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [node name="SteeringTestDaragh" type="Node3D"]
 script = ExtResource("1_yv7un")
-bounds_radius = 100.0
 water_surface_level = 80.0
 wander_interval = 3.0
 

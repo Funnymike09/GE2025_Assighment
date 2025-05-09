@@ -20,7 +20,6 @@ var threat_pos : Vector3
 var current_behaviour
 @export var wander_target : Vector3
 var vision_radius : float
-var avoiding : bool
 
 func _ready():
 	# checking boidmanager node exists
@@ -32,18 +31,17 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	# limit length of velocity to our speed variable
 	var steer_target = boid_calc()
-	var target
-	if (!avoiding):
-		target = (steer_target + wander_target * wander_weight).normalized()
-	else:
-		target = (steer_target + (boidManager.bounds_center - global_position)).normalized()
+	var target = (steer_target + wander_target * wander_weight)
 	velocity = velocity.lerp(target * speed, 0.1)
 	velocity = velocity.limit_length(speed)
-	move_and_slide() # how we shmove
 	
 	# rotate fish here
 	var new_transform = transform.looking_at(wander_target, Vector3.UP)
 	transform = transform.interpolate_with(new_transform, rotation_speed * delta)
+	global_position.y = clamp(global_position.y, -15, 7)
+	global_position.x = clamp(global_position.x, -15, 15)
+	global_position.z = clamp(global_position.z, -15, 15)
+	move_and_slide() # how we shmove
 	on_draw_gizmos()
 	#print("Wander target: " + str(wander_target))
 
@@ -72,11 +70,11 @@ func boid_calc() -> Vector3:
 		# calc average alignment direction of the crowd by averaging the velocity
 		if alignment.length() > 0: # make sure we're not normalizing a zero vector
 			alignment = (alignment/neighborCount).normalized()
-		else: print("Alignment vector length is 0 or less")
+		else: print("DBUG Alignment vector length is 0 or less")
 		# steer towards the average pos of crowd 
 		if cohesion.length() > 0: # make sure we're not normalizing a zero vector
 			cohesion = ((cohesion / neighborCount) - global_position).normalized()
-		else: print("Cohesion vector length is 0 or less")
+		else: print("DBUG Cohesion vector length is 0 or less")
 		# seperation calced above
 		
 		# combine behaviours into direction vector

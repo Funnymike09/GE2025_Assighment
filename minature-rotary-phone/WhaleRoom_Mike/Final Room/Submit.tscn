@@ -7,24 +7,24 @@
 [ext_resource type="Material" uid="uid://b2raijlysriqd" path="res://behaviors/Tank Material.tres" id="4_qaut4"]
 [ext_resource type="Script" uid="uid://s5pb8njisohn" path="res://behaviors/avoidance.gd" id="5_gfsgr"]
 [ext_resource type="Script" uid="uid://bctpwo8cerrgq" path="res://behaviors/harmonic.gd" id="6_6tak8"]
-[ext_resource type="ArrayMesh" uid="uid://bfuehokv23s13" path="res://WhaleRoom_Mike/TailMesh.res" id="6_r735p"]
+[ext_resource type="ArrayMesh" uid="uid://cp1xq5mgmyn71" path="res://WhaleRoom_Mike/TailMesh.res" id="6_r735p"]
 [ext_resource type="Script" uid="uid://ci8facjqq07ft" path="res://behaviors/constrain.gd" id="7_5y5xs"]
 [ext_resource type="Script" uid="uid://bqb47mif0r5vt" path="res://behaviors/noise_wander.gd" id="8_0dhei"]
 [ext_resource type="Script" uid="uid://b6jj7yxhu2hi1" path="res://behaviors/follow_path.gd" id="9_bnf3l"]
 [ext_resource type="Script" uid="uid://c2d7mphmtn1jv" path="res://behaviors/seek.gd" id="10_r735p"]
 [ext_resource type="Script" uid="uid://bn4xj07get8k6" path="res://behaviors/arrive.gd" id="11_vhrcu"]
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="12_mbhyr"]
-[ext_resource type="Material" uid="uid://dfso08a0ar4sp" path="res://WhaleRoom_Mike/Bowl mat.tres" id="13_0dhei"]
-[ext_resource type="Script" path="res://WhaleRoom_Mike/Final Room/audio_breach.gd" id="15_mbhyr"]
+[ext_resource type="Material" path="res://WhaleRoom_Mike/Bowl mat.tres" id="13_0dhei"]
+[ext_resource type="Script" uid="uid://djbpuwt13hxe3" path="res://WhaleRoom_Mike/Final Room/audio_breach.gd" id="15_mbhyr"]
 [ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="15_r735p"]
-[ext_resource type="ArrayMesh" uid="uid://krl3646k5n8o" path="res://WhaleRoom_Mike/HeadMesh.res" id="15_vhrcu"]
-[ext_resource type="ArrayMesh" uid="uid://wvgl642sgvg7" path="res://WhaleRoom_Mike/BodyWhale.res" id="17_mbhyr"]
+[ext_resource type="ArrayMesh" uid="uid://ck1go1yrxafdw" path="res://WhaleRoom_Mike/HeadMesh.res" id="15_vhrcu"]
+[ext_resource type="ArrayMesh" uid="uid://bmin1c68yt14m" path="res://WhaleRoom_Mike/BodyWhale.res" id="17_mbhyr"]
 [ext_resource type="ArrayMesh" uid="uid://dg167bjpr2b32" path="res://WhaleRoom_Mike/Final Room/Bowl2.obj" id="18_mbhyr"]
-[ext_resource type="Material" uid="uid://baw1fa3du13xh" path="res://WhaleRoom_Mike/polyWatar.tres" id="19_n2pol"]
+[ext_resource type="Material" path="res://WhaleRoom_Mike/polyWatar.tres" id="19_n2pol"]
 [ext_resource type="PackedScene" uid="uid://cum5ivwqduljn" path="res://WhaleRoom_Mike/Final Room/bowle_insider.tscn" id="22_vhrcu"]
 [ext_resource type="Script" uid="uid://p16pig53abtb" path="res://SteeringBranch/fishBoid.gd" id="23_mbhyr"]
 [ext_resource type="Script" uid="uid://ca3v58odo31a" path="res://SteeringBranch/boidManager.gd" id="23_n2pol"]
-[ext_resource type="Script" uid="uid://blvhesnccf8sf" path="res://WhaleRoom_Mike/Final Room/controlUI.gd" id="25_2l1ob"]
+[ext_resource type="Script" path="res://WhaleRoom_Mike/Final Room/controlUI.gd" id="25_2l1ob"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6tak8"]
 
@@ -315,9 +315,10 @@ transform = Transform3D(5121.16, 0, 0, 0, 26.958, 0, 0, 0, 4908.19, 0.170817, 7.
 
 [node name="FISHES" type="Node3D" parent="."]
 script = ExtResource("23_n2pol")
-bounds_radius = 30.0
+bounds_center = Vector3(0, -9, 0)
 water_surface_level = 7.0
-wander_interval = 3.0
+vision_radius = 8.0
+wander_interval = 4.0
 
 [node name="Fish" type="CharacterBody3D" parent="FISHES"]
 transform = Transform3D(1, 0, 0, 0, -0.975783, -0.218739, 0, 0.218739, -0.975783, 0, 2.62335, -5.3778)

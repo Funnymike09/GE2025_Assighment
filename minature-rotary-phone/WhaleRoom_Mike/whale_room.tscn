@@ -166,7 +166,6 @@ script = ExtResource("1_4mwh7")
 bones = [NodePath("../boid"), NodePath("../body1"), NodePath("../tail")]
 
 [node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="creature"]
-event_name = "event:/Whale/SurfaceExhale"
 event_guid = "{f25c3e78-a583-437b-8d70-6fb5e5bf2649}"
 autoplay = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.456073, 17.1303, 0)
