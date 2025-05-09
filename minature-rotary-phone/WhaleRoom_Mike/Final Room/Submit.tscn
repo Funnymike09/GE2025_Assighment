@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://crmot4j22fltw"]
+[gd_scene load_steps=40 format=3 uid="uid://crmot4j22fltw"]
 
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="1_6tak8"]
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="2_xmup5"]
@@ -23,6 +23,7 @@
 [ext_resource type="Material" uid="uid://baw1fa3du13xh" path="res://WhaleRoom_Mike/polyWatar.tres" id="19_n2pol"]
 [ext_resource type="PackedScene" uid="uid://cum5ivwqduljn" path="res://WhaleRoom_Mike/Final Room/bowle_insider.tscn" id="22_vhrcu"]
 [ext_resource type="Script" uid="uid://p16pig53abtb" path="res://SteeringBranch/fishBoid.gd" id="23_mbhyr"]
+[ext_resource type="Script" uid="uid://ca3v58odo31a" path="res://SteeringBranch/boidManager.gd" id="23_n2pol"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6tak8"]
 
@@ -300,17 +301,22 @@ bank_paths = ["res://FmodBank/Desktop/Master.bank"]
 [node name="surface ref" type="Node3D" parent="."]
 transform = Transform3D(5121.16, 0, 0, 0, 26.958, 0, 0, 0, 4908.19, 0.170817, 7.62465, 2.48627)
 
-[node name="Fish" type="CharacterBody3D" parent="."]
+[node name="Node" type="Node3D" parent="."]
+script = ExtResource("23_n2pol")
+bounds_radius = 30.0
+wander_interval = 4.0
+
+[node name="Fish" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, -0.975783, -0.218739, 0, 0.218739, -0.975783, 0, 2.62335, -5.3778)
 script = ExtResource("23_mbhyr")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish2" type="CharacterBody3D" parent="."]
+[node name="Fish2" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 2.62335, -3.36119)
 script = ExtResource("23_mbhyr")
 speed = 2.335
@@ -321,13 +327,13 @@ cohesion_weight = 5.44
 seperation_weight = 3.29
 wander_weight = 11.585
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish2"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish2"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish3" type="CharacterBody3D" parent="."]
+[node name="Fish3" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 2.62335, -6.97922)
 script = ExtResource("23_mbhyr")
 speed = 2.45
@@ -338,13 +344,13 @@ cohesion_weight = 5.275
 seperation_weight = 3.53
 wander_weight = 11.39
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish3"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish3"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish4" type="CharacterBody3D" parent="."]
+[node name="Fish4" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87739, 2.62335, -6.50147)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -355,13 +361,13 @@ cohesion_weight = 5.44
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish4"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish4"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish5" type="CharacterBody3D" parent="."]
+[node name="Fish5" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, -0.398366, -6.56404)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -372,13 +378,13 @@ cohesion_weight = 4.715
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish5"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish5"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish6" type="CharacterBody3D" parent="."]
+[node name="Fish6" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 2.62335, -8.22308)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -389,13 +395,13 @@ cohesion_weight = 5.44
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish6"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish6"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish6"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish7" type="CharacterBody3D" parent="."]
+[node name="Fish7" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42269, 2.62335, -7.73112)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -406,14 +412,14 @@ cohesion_weight = 5.44
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish7"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.60725)
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish7"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish7"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish8" type="CharacterBody3D" parent="."]
+[node name="Fish8" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90155, 2.62335, -4.05984)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -424,14 +430,14 @@ cohesion_weight = 5.44
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish8"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.02289, 0)
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish8"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish8"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish9" type="CharacterBody3D" parent="."]
+[node name="Fish9" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445747, -0.125353, -9.32732)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -442,13 +448,13 @@ cohesion_weight = 5.44
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish9"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish9"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish9"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish9"]
 shape = SubResource("BoxShape3D_2l1ob")
 
-[node name="Fish10" type="CharacterBody3D" parent="."]
+[node name="Fish10" type="CharacterBody3D" parent="Node"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50724, 2.62335, -9.1677)
 script = ExtResource("23_mbhyr")
 speed = 3.0
@@ -459,10 +465,10 @@ cohesion_weight = 5.44
 seperation_weight = 2.7
 wander_weight = 10.6
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish10"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node/Fish10"]
 mesh = SubResource("PrismMesh_n2pol")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish10"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node/Fish10"]
 shape = SubResource("BoxShape3D_2l1ob")
 
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="Player" method="_on_area_3d_area_entered"]
