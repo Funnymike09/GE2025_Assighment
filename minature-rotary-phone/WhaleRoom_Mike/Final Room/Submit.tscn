@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://crmot4j22fltw"]
+[gd_scene load_steps=39 format=3 uid="uid://crmot4j22fltw"]
 
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="1_6tak8"]
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="2_xmup5"]
@@ -22,6 +22,7 @@
 [ext_resource type="ArrayMesh" uid="uid://dg167bjpr2b32" path="res://WhaleRoom_Mike/Final Room/Bowl2.obj" id="18_mbhyr"]
 [ext_resource type="Material" uid="uid://baw1fa3du13xh" path="res://WhaleRoom_Mike/polyWatar.tres" id="19_n2pol"]
 [ext_resource type="PackedScene" uid="uid://cum5ivwqduljn" path="res://WhaleRoom_Mike/Final Room/bowle_insider.tscn" id="22_vhrcu"]
+[ext_resource type="Script" uid="uid://p16pig53abtb" path="res://SteeringBranch/fishBoid.gd" id="23_mbhyr"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6tak8"]
 
@@ -82,6 +83,10 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bnf3l"]
 points = PackedVector3Array(0.151871, -0.13976, 0.971938, -0.182726, -0.108617, -0.975114, -0.18298, 0.105407, -0.976467, 0.976471, 0.105408, -0.182945, 0.297766, -0.947862, -0.0891631, -0.916702, 0.289462, 0.27488, -0.625932, -0.769717, 0.119148, 0.787589, 0.283837, 0.545132, 0.545304, 0.283913, -0.787528, 0.535681, -0.64991, 0.535576, -0.717809, -0.471879, -0.508364, 0.32617, -0.648781, -0.68174, -0.326166, -0.648777, 0.681732, -0.364441, 0.285607, 0.880765, -0.786879, 0.283264, -0.544641, 0.874699, -0.44273, -0.1808, -0.237383, -0.767709, -0.593248, -0.936978, -0.261737, 0.211479, -0.659604, -0.292535, 0.689528, 0.815835, -0.17105, 0.543846, -0.0896811, -0.979934, 0.149377, 0.544056, -0.171016, -0.81583, 0.366011, 0.288355, 0.884559, -0.975121, -0.108616, -0.182692, 0.119164, -0.769691, 0.625957, 0.152319, 0.287509, -0.944268, -0.181518, -0.291961, 0.938323, -0.544066, -0.171012, -0.815845, 0.884614, 0.28827, -0.36589, -0.354952, -0.884863, -0.295767, 0.748932, -0.62197, 0.209622, 0.975106, -0.108619, 0.182689)
+
+[sub_resource type="PrismMesh" id="PrismMesh_n2pol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2l1ob"]
 
 [node name="Submit" type="Node3D"]
 
@@ -294,6 +299,171 @@ bank_paths = ["res://FmodBank/Desktop/Master.bank"]
 
 [node name="surface ref" type="Node3D" parent="."]
 transform = Transform3D(5121.16, 0, 0, 0, 26.958, 0, 0, 0, 4908.19, 0.170817, 7.62465, 2.48627)
+
+[node name="Fish" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.975783, -0.218739, 0, 0.218739, -0.975783, 0, 2.62335, -5.3778)
+script = ExtResource("23_mbhyr")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 2.62335, -3.36119)
+script = ExtResource("23_mbhyr")
+speed = 2.335
+vision_radius = 20.0
+seperation_distance = 6.815
+alignment_weight = 1.89
+cohesion_weight = 5.44
+seperation_weight = 3.29
+wander_weight = 11.585
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish2"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish3" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 2.62335, -6.97922)
+script = ExtResource("23_mbhyr")
+speed = 2.45
+vision_radius = 18.96
+seperation_distance = 4.54
+alignment_weight = 2.66
+cohesion_weight = 5.275
+seperation_weight = 3.53
+wander_weight = 11.39
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish3"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish4" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.87739, 2.62335, -6.50147)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 3.385
+cohesion_weight = 5.44
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish4"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish5" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, -0.398366, -6.56404)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 2.645
+cohesion_weight = 4.715
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish5"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish6" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 2.62335, -8.22308)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 3.385
+cohesion_weight = 5.44
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish6"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish7" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42269, 2.62335, -7.73112)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 3.385
+cohesion_weight = 5.44
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.60725)
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish7"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish8" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90155, 2.62335, -4.05984)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 3.385
+cohesion_weight = 5.44
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.02289, 0)
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish8"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish9" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445747, -0.125353, -9.32732)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 3.385
+cohesion_weight = 5.44
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish9"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish9"]
+shape = SubResource("BoxShape3D_2l1ob")
+
+[node name="Fish10" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50724, 2.62335, -9.1677)
+script = ExtResource("23_mbhyr")
+speed = 3.0
+vision_radius = 20.0
+seperation_distance = 5.04
+alignment_weight = 3.385
+cohesion_weight = 5.44
+seperation_weight = 2.7
+wander_weight = 10.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Fish10"]
+mesh = SubResource("PrismMesh_n2pol")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Fish10"]
+shape = SubResource("BoxShape3D_2l1ob")
 
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="Player" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="creature/boid/audioBreach" method="_on_area_3d_area_entered"]
