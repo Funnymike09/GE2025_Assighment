@@ -33,6 +33,7 @@ wander_interval = 3.0
 [node name="Fish" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish"]
 mesh = SubResource("PrismMesh_rld20")
@@ -43,6 +44,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish2" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13523, 0.5, 2.01661)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish2"]
 mesh = SubResource("PrismMesh_rld20")
@@ -53,6 +55,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish3" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.18624, 0.5, -1.60142)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish3"]
 mesh = SubResource("PrismMesh_rld20")
@@ -63,10 +66,7 @@ shape = SubResource("BoxShape3D_v4ce8")
 [node name="Fish4" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9573, 0.5, 1.83867)
 script = ExtResource("1_u2k7x")
-seperation_distance = 7.0
-alignment_weight = 10.0
-seperation_weight = 2.0
-wander_weight = 5.0
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish4"]
 mesh = SubResource("PrismMesh_rld20")
@@ -75,8 +75,9 @@ mesh = SubResource("PrismMesh_rld20")
 shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish5" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, -2.84143, -1.18624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.07592, 0.5, -1.18624)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish5"]
 mesh = SubResource("PrismMesh_rld20")
@@ -85,8 +86,9 @@ mesh = SubResource("PrismMesh_rld20")
 shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish6" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 3.28461, -0.118623)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.90629, 0.5, -0.118623)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish6"]
 mesh = SubResource("PrismMesh_rld20")
@@ -95,8 +97,9 @@ mesh = SubResource("PrismMesh_rld20")
 shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish7" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42269, -4.18557, -2.35332)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.42269, 0.5, -2.35332)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish7"]
 mesh = SubResource("PrismMesh_rld20")
@@ -105,8 +108,9 @@ mesh = SubResource("PrismMesh_rld20")
 shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish8" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.44092, 0.5, 1.31796)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.90155, 0.5, 1.31796)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish8"]
 mesh = SubResource("PrismMesh_rld20")
@@ -115,8 +119,9 @@ mesh = SubResource("PrismMesh_rld20")
 shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish9" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.622419, 0.5, -3.94952)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.445747, 0.5, -3.94952)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish9"]
 mesh = SubResource("PrismMesh_rld20")
@@ -125,8 +130,9 @@ mesh = SubResource("PrismMesh_rld20")
 shape = SubResource("BoxShape3D_v4ce8")
 
 [node name="Fish10" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50724, 2.47213, -3.7899)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50724, 0.5, -3.7899)
 script = ExtResource("1_u2k7x")
+speed = 10.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Fish10"]
 mesh = SubResource("PrismMesh_rld20")
@@ -140,16 +146,6 @@ current = true
 fov = 78.4
 script = ExtResource("3_rld20")
 follow_distance = 30.0
-
-[node name="FmodListener3D" type="FmodListener3D" parent="Camera3D"]
-
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Camera3D"]
-event_name = "event:/Amiance/Surface 2"
-event_guid = "{01c07798-4d77-4d0e-8b30-806a28071162}"
-autoplay = true
-fmod_parameters/Deep/id = 7281973838695930277
-fmod_parameters/Deep = 0.0
-fmod_parameters/Deep/variant_type = 3
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891553, 0.452917, 0, -0.452917, 0.891553, 0.732742, 109.831, -227.885)
@@ -166,11 +162,7 @@ mesh = SubResource("PlaneMesh_v4ce8")
 shape = SubResource("WorldBoundaryShape3D_gi26m")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-transform = Transform3D(0.224824, 0, 0, 0, 0.224824, 0, 0, 0, 0.224824, 0, 0, 0)
 radius = 100.0
 radial_segments = 32
 rings = 16
 material = SubResource("ShaderMaterial_gi26m")
-
-[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://FmodBank/Desktop/WATAS.bank"]
