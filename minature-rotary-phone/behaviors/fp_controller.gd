@@ -47,7 +47,7 @@ func _process(delta):
 
 	if can_move:
 		var v = Vector3.ZERO
-		
+		_depthCeck()
 		var mult = 1
 		if Input.is_key_pressed(KEY_SHIFT):
 			mult = 3
@@ -77,7 +77,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 	$deepwata.play_one_shot()
 	inBowl = true
 	if inBowl:
-		_depthCeck()
+		#_depthCeck()
 		#$Surfaces.set_parameter('Deep',distance)
 
 		print_debug('in bowl playing')

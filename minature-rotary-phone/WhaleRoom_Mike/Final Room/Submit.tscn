@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://crmot4j22fltw"]
+[gd_scene load_steps=36 format=3 uid="uid://crmot4j22fltw"]
 
 [ext_resource type="PackedScene" uid="uid://ivslos3b7cmv" path="res://behaviors/player.tscn" id="1_6tak8"]
 [ext_resource type="Script" uid="uid://bb475dsswmiyu" path="res://behaviors/spine_animator.gd" id="2_xmup5"]
@@ -83,12 +83,6 @@ shader_parameter/edge_color = Color(0, 0, 0, 1)
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_bnf3l"]
 points = PackedVector3Array(0.151871, -0.13976, 0.971938, -0.182726, -0.108617, -0.975114, -0.18298, 0.105407, -0.976467, 0.976471, 0.105408, -0.182945, 0.297766, -0.947862, -0.0891631, -0.916702, 0.289462, 0.27488, -0.625932, -0.769717, 0.119148, 0.787589, 0.283837, 0.545132, 0.545304, 0.283913, -0.787528, 0.535681, -0.64991, 0.535576, -0.717809, -0.471879, -0.508364, 0.32617, -0.648781, -0.68174, -0.326166, -0.648777, 0.681732, -0.364441, 0.285607, 0.880765, -0.786879, 0.283264, -0.544641, 0.874699, -0.44273, -0.1808, -0.237383, -0.767709, -0.593248, -0.936978, -0.261737, 0.211479, -0.659604, -0.292535, 0.689528, 0.815835, -0.17105, 0.543846, -0.0896811, -0.979934, 0.149377, 0.544056, -0.171016, -0.81583, 0.366011, 0.288355, 0.884559, -0.975121, -0.108616, -0.182692, 0.119164, -0.769691, 0.625957, 0.152319, 0.287509, -0.944268, -0.181518, -0.291961, 0.938323, -0.544066, -0.171012, -0.815845, 0.884614, 0.28827, -0.36589, -0.354952, -0.884863, -0.295767, 0.748932, -0.62197, 0.209622, 0.975106, -0.108619, 0.182689)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_08sxa"]
-lightmap_size_hint = Vector2i(152, 152)
-size = Vector2(30, 30)
-subdivide_width = 32
-subdivide_depth = 16
-
 [node name="Submit" type="Node3D"]
 
 [node name="Player" parent="." node_paths=PackedStringArray("env", "Surface") instance=ExtResource("1_6tak8")]
@@ -114,6 +108,7 @@ fmod_parameters/Deep = 0.0
 fmod_parameters/Deep/variant_type = 3
 
 [node name="FmodListener3D" type="FmodListener3D" parent="Player"]
+weight = 2.0
 
 [node name="camera follower" type="CharacterBody3D" parent="."]
 script = ExtResource("3_5ag7w")
@@ -297,11 +292,6 @@ transform = Transform3D(189.968, 0, 0, 0, 1, 0, 0, 0, 182.068, 0, 0.317511, 0)
 
 [node name="bowleInsider" parent="CSGSphere3D/Bowl2" instance=ExtResource("22_vhrcu")]
 transform = Transform3D(0.065, 0, 0, 0, 0.065, 0, 0, 0, 0.065, 0, -0.216076, 0)
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.67421, 0, 0, 0, 1.67421, 0, 0, 0, 1.67421, -63.0445, 17.2327, 76.7189)
-material_override = ExtResource("19_n2pol")
-mesh = SubResource("PlaneMesh_08sxa")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
 bank_paths = ["res://FmodBank/Desktop/WATAS.bank", "res://FmodBank/Desktop/Master.strings.bank"]

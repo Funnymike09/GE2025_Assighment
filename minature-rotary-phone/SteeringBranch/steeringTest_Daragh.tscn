@@ -139,6 +139,16 @@ current = true
 fov = 78.4
 script = ExtResource("3_rld20")
 
+[node name="FmodListener3D" type="FmodListener3D" parent="Camera3D"]
+
+[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Camera3D"]
+event_name = "event:/Amiance/Surface 2"
+event_guid = "{01c07798-4d77-4d0e-8b30-806a28071162}"
+autoplay = true
+fmod_parameters/Deep/id = 7281973838695930277
+fmod_parameters/Deep = 0.0
+fmod_parameters/Deep/variant_type = 3
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.891553, 0.452917, 0, -0.452917, 0.891553, 0.732742, 109.831, -227.885)
 
@@ -159,3 +169,6 @@ radius = 100.0
 radial_segments = 32
 rings = 16
 material = SubResource("ShaderMaterial_gi26m")
+
+[node name="FmodBankLoader" type="FmodBankLoader" parent="."]
+bank_paths = ["res://FmodBank/Desktop/WATAS.bank"]
