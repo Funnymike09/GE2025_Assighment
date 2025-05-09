@@ -29,7 +29,7 @@ General/should_load_by_name=false
 [application]
 
 config/name="Minature Rotary Phone"
-run/main_scene="uid://dmi1o12psjnub"
+run/main_scene="uid://crmot4j22fltw"
 config/features=PackedStringArray("4.4")
 config/icon="res://behaviors/icon.png"
 

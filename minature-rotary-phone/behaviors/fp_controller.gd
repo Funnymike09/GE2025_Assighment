@@ -87,11 +87,11 @@ func _depthCeck()-> void:
 	#distance = global_position.distance_to(Surface.global_position)
 	$Surfaces.set_parameter('Deep',distance)
 	distance = clampi(global_position.distance_to(Surface.global_position),0,20)
-	print_debug(distance)
+
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	#$FmodEventEmitter3D.stop()
-	$deepwata.play()
+	$deepwata.stop()
 	inBowl = false
 	env.environment.volumetric_fog_density = 0.0
 	$Surfaces.set_parameter('Deep',0)
