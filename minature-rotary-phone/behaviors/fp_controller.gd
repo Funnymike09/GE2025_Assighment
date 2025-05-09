@@ -11,7 +11,7 @@ extends Node3D
 @export var env:WorldEnvironment
 @export var Surface: Node3D
 var distance
-@export var speaker: FmodEventEmitter3D
+
 
 
 var controlling = true
@@ -74,24 +74,24 @@ func _process(delta):
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	#$FmodEventEmitter3D.play()
-	$deepwata.play()
+	$deepwata.play_one_shot()
 	inBowl = true
 	if inBowl:
-		#_depthCeck()
-		$Surfaces.set_parameter('Deep',10)
+		_depthCeck()
+		#$Surfaces.set_parameter('Deep',distance)
 
-		print_debug()
+		print_debug('in bowl playing')
 	
 	env.environment.volumetric_fog_density = 0.02
 	
 func _depthCeck()-> void:
 	#distance = global_position.distance_to(Surface.global_position)
 	distance = clampi(global_position.distance_to(Surface.global_position),0,20)
-	#print_debug(distance)
+	print_debug(distance)
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	#$FmodEventEmitter3D.stop()
 	$deepwata.play()
 	inBowl = false
 	env.environment.volumetric_fog_density = 0.0
-	$Surfaces.set_parameter('Deep',0)
+	#$Surfaces.set_parameter('Deep',0)
