@@ -15,7 +15,7 @@
 [ext_resource type="Script" uid="uid://bn4xj07get8k6" path="res://behaviors/arrive.gd" id="11_vhrcu"]
 [ext_resource type="Script" uid="uid://cqk70j8jant4u" path="res://behaviors/player_steering.gd" id="12_mbhyr"]
 [ext_resource type="Material" uid="uid://dfso08a0ar4sp" path="res://WhaleRoom_Mike/Bowl mat.tres" id="13_0dhei"]
-[ext_resource type="Script" uid="uid://djbpuwt13hxe3" path="res://WhaleRoom_Mike/Final Room/audio_breach.gd" id="15_mbhyr"]
+[ext_resource type="Script" path="res://WhaleRoom_Mike/Final Room/audio_breach.gd" id="15_mbhyr"]
 [ext_resource type="Shader" uid="uid://bk3qg5vr1b32i" path="res://WhaleRoom_Mike/Glass.gdshader" id="15_r735p"]
 [ext_resource type="ArrayMesh" uid="uid://krl3646k5n8o" path="res://WhaleRoom_Mike/HeadMesh.res" id="15_vhrcu"]
 [ext_resource type="ArrayMesh" uid="uid://wvgl642sgvg7" path="res://WhaleRoom_Mike/BodyWhale.res" id="17_mbhyr"]
@@ -30,7 +30,7 @@ resource_local_to_scene = true
 closed = true
 bake_interval = 0.01
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.3354, -16.3986, -17.3078, 0, 0, 0, 0, 0, 0, 3.1149, 11.4366, 12.9386, 0, 0, 0, 0, 0, 0, 19.9973, 14.3196, -16.3176, 0, 0, 0, 0, 0, 0, 0, 0.25129, -16.3293, 0, 0, 0, 0, 0, 0, -18.8987, 1.65761, -20.1716, 0, 0, 0, 0, 0, 0, -0.387939, 19.2248, 1.86348, 0, 0, 0, 0, 0, 0, 3.60519, 17.5299, 6.44719, 0, 0, 0, 0, 0, 0, 11.9477, 0, -17.5351, 0, 0, 0, 0, 0, 0, -6.4151, 6.37463, -7.76931, 0, 0, 0, 0, 0, 0, -3.9078, 14.9947, -16.2798, 0, 0, 0, 0, 0, 0, 1.7717, 19.5008, -16.7962, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2.3354, -16.3986, -17.3078, 0, 0, 0, 0, 0, 0, 3.1149, 11.4366, 12.9386, 0, 0, 0, 0, 0, 0, 19.9973, 14.3196, -16.3176, 0, 0, 0, 0, 0, 0, 0, 0.25129, -29.1026, 0, 0, 0, 0, 0, 0, -18.8987, 1.65761, -20.1716, 0, 0, 0, 0, 0, 0, -0.387939, 19.2248, 1.86348, 0, 0, 0, 0, 0, 0, 3.60519, 17.5299, 6.44719, 0, 0, 0, 0, 0, 0, 11.9477, 0, -17.5351, 0, 0, 0, 0, 0, 0, -6.4151, 6.37463, -7.76931, 0, 0, 0, 0, 0, 0, -3.9078, 14.9947, -16.2798, 0, 0, 0, 0, 0, 0, 1.7717, 19.5008, -16.7962, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 13
@@ -91,34 +91,33 @@ subdivide_depth = 16
 
 [node name="Submit" type="Node3D"]
 
-[node name="Player" parent="." node_paths=PackedStringArray("env", "Surface") instance=ExtResource("1_6tak8")]
+[node name="Player" parent="." node_paths=PackedStringArray("env", "Surface", "speaker") instance=ExtResource("1_6tak8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.888981)
+inBowl = true
 env = NodePath("../WorldEnvironment")
 Surface = NodePath("../CSGSphere3D/Bowl2/Node3D")
-
-[node name="FmodListener3D" type="FmodListener3D" parent="Player"]
-
-[node name="FmodEventEmitter3D" type="FmodEventEmitter3D" parent="Player"]
-event_name = "event:/Amiance/Deep wata"
-event_guid = "{442770f3-1bfe-4f70-8d71-d8d4908ae8c4}"
-transform = Transform3D(1.0005, 0, 0, 0, 1.0005, 0, 0, 0, 1.0005, 0, 0, 0)
-
-[node name="FmodEventEmitter3D2" type="FmodEventEmitter3D" parent="Player"]
-event_name = "event:/Amiance/Surface"
-event_guid = "{813ea493-2fc1-40ca-949a-0b5aa418a00a}"
-autoplay = true
-fmod_parameters/DeepLVL/id = -2825082069586755593
-fmod_parameters/DeepLVL = 20.0
-fmod_parameters/DeepLVL/variant_type = 3
-transform = Transform3D(1.244, 0, 0, 0, 0.02, 0, 0, 0, 1, 0, 0, 0)
+speaker = NodePath("deepwata")
 
 [node name="Area3D" type="Area3D" parent="Player"]
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Player/Area3D"]
 shape = SubResource("SphereShape3D_6tak8")
 
+[node name="deepwata" type="FmodEventEmitter3D" parent="Player"]
+event_name = "event:/Amiance/Deep wata"
+event_guid = "{9d007e38-2a36-4da5-b949-7f2d4db09901}"
+
+[node name="FmodListener3D" type="FmodListener3D" parent="Player"]
+
+[node name="Surfaces" type="FmodEventEmitter3D" parent="Player"]
+event_name = "event:/Amiance/Surface 2"
+event_guid = "{01c07798-4d77-4d0e-8b30-806a28071162}"
+autoplay = true
+fmod_parameters/Deep/id = 7281973838695930277
+fmod_parameters/Deep = 0.0
+fmod_parameters/Deep/variant_type = 3
+
 [node name="camera follower" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.973738, 12.5344, 41.7624)
 script = ExtResource("3_5ag7w")
 max_force = 30
 draw_gizmos = false
@@ -141,7 +140,7 @@ curve = SubResource("Curve3D_dvjpt")
 environment = SubResource("Environment_08sxa")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(-0.997441, 0.0653172, 0.0290714, 0.0251451, -0.0601685, 0.997871, 0.0669264, 0.996049, 0.0583726, 0, 0, 0)
 shadow_enabled = true
 
 [node name="creature" type="Node" parent="."]
@@ -202,30 +201,10 @@ script = ExtResource("12_mbhyr")
 draw_gizmos = false
 enabled = false
 
-[node name="swish" type="FmodEventEmitter3D" parent="creature/boid"]
-event_name = "event:/Whale/Swimming"
-event_guid = "{40323520-5661-41c0-b114-b58f843c268a}"
-autoplay = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.231632, -1.77942)
-
-[node name="Breach" type="FmodEventEmitter3D" parent="creature/boid"]
-event_name = "event:/Whale/Breaching"
-event_guid = "{ac911bfd-c056-4654-812d-20bc13f73d02}"
-fmod_parameters/DeepLVL/id = -2825082069586755593
-fmod_parameters/DeepLVL = 0.0
-fmod_parameters/DeepLVL/variant_type = 3
-
-[node name="land" type="FmodEventEmitter3D" parent="creature/boid"]
-event_name = "event:/Whale/LandW"
-event_guid = "{ddff6f1f-8b48-4f94-86c0-e586e5e01cc1}"
-fmod_parameters/DeepLVL/id = -2825082069586755593
-fmod_parameters/DeepLVL = 0.0
-fmod_parameters/DeepLVL/variant_type = 3
-
 [node name="audioBreach" type="Node" parent="creature/boid" node_paths=PackedStringArray("out", "land")]
 script = ExtResource("15_mbhyr")
-out = NodePath("../Breach")
-land = NodePath("../land")
+out = NodePath("../Out")
+land = NodePath("../In")
 
 [node name="Area3D" type="Area3D" parent="creature/boid/audioBreach"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.489376, -1.56087, 2.68076)
@@ -233,6 +212,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.489376, -1.56087, 2.68076)
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="creature/boid/audioBreach/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.986876)
 shape = SubResource("SphereShape3D_6tak8")
+
+[node name="Swiminge" type="FmodEventEmitter3D" parent="creature/boid"]
+event_name = "event:/Whale/Swimming"
+event_guid = "{414bc5bb-5b52-46f8-9f37-27e2594b3d47}"
+autoplay = true
+
+[node name="Out" type="FmodEventEmitter3D" parent="creature/boid"]
+event_name = "event:/Whale/Breaching"
+event_guid = "{0adb978e-efeb-45d4-ae75-719b655ba8a3}"
+fmod_parameters/Deep/id = 7281973838695930277
+fmod_parameters/Deep = 0.0
+fmod_parameters/Deep/variant_type = 3
+
+[node name="In" type="FmodEventEmitter3D" parent="creature/boid"]
+event_name = "event:/Whale/LandW"
+event_guid = "{36bb8490-5f21-444f-910b-ee88bba72ab6}"
+fmod_parameters/Deep/id = 7281973838695930277
+fmod_parameters/Deep = 0.0
+fmod_parameters/Deep/variant_type = 3
+
+[node name="sounds" type="FmodEventEmitter3D" parent="creature/boid"]
+event_name = "event:/Whale/Moan"
+event_guid = "{f24b690e-553d-490e-bd35-8977556abd3d}"
+autoplay = true
+
+[node name="Exhale" type="FmodEventEmitter3D" parent="creature/boid"]
+event_name = "event:/Whale/SurfaceExhale"
+event_guid = "{ee887040-35ef-4428-ae10-8b1393bc2291}"
+fmod_parameters/Deep/id = 7281973838695930277
+fmod_parameters/Deep = 0.0
+fmod_parameters/Deep/variant_type = 3
 
 [node name="tail" type="CharacterBody3D" parent="creature"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.489376, -1.56087, -0.63224)
@@ -296,7 +306,7 @@ material_override = ExtResource("19_n2pol")
 mesh = SubResource("PlaneMesh_08sxa")
 
 [node name="FmodBankLoader" type="FmodBankLoader" parent="."]
-bank_paths = ["res://FmodBank/Desktop/Master.bank"]
+bank_paths = ["res://FmodBank/Desktop/WATAS.bank"]
 
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="Player" method="_on_area_3d_area_entered"]
 [connection signal="area_entered" from="CSGSphere3D/Bowl2/Area3D" to="creature/boid/audioBreach" method="_on_area_3d_area_entered"]

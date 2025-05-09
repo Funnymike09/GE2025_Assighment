@@ -74,12 +74,12 @@ func _process(delta):
 
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	#$FmodEventEmitter3D.play()
-	$FmodEventEmitter3D.play()
+	$deepwata.play()
 	inBowl = true
 	if inBowl:
 		#_depthCeck()
-		$FmodEventEmitter3D.get_parameter('DeepLVL')
-		$FmodEventEmitter3D.set_parameter('DeepLVL',10)
+		$Surfaces.set_parameter('Deep',10)
+
 		print_debug()
 	
 	env.environment.volumetric_fog_density = 0.02
@@ -91,8 +91,7 @@ func _depthCeck()-> void:
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	#$FmodEventEmitter3D.stop()
-	$FmodEventEmitter3D.stop()
+	$deepwata.play()
 	inBowl = false
 	env.environment.volumetric_fog_density = 0.0
-	$FmodEventEmitter3D.get_parameter('DeepLVL')
-	$FmodEventEmitter3D.set_parameter('DeepLVL',0)
+	$Surfaces.set_parameter('Deep',0)
