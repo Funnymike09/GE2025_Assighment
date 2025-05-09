@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cx4et5v2p32lv"
-path="res://.godot/imported/Golova.fbx-09d0c7d2a162b54c9bc5365c5d46e46b.scn"
+uid="uid://cu7mipy1c6t8i"
+path="res://.godot/imported/Tail.fbx-8d0c7620405b22453c0483f86ace1fcc.scn"
 
 [deps]
 
-source_file="res://WhaleRoom_Mike/Golova.fbx"
-dest_files=["res://.godot/imported/Golova.fbx-09d0c7d2a162b54c9bc5365c5d46e46b.scn"]
+source_file="res://WhaleRoom_Mike/Tail.fbx"
+dest_files=["res://.godot/imported/Tail.fbx-8d0c7620405b22453c0483f86ace1fcc.scn"]
 
 [params]
 
@@ -34,13 +34,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "meshes": {
-"Plane_001": {
+"Plane_002": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "Head"
+"save_to_file/path": "res://WhaleRoom_Mike/TailMesh.res"
 }
 }
 }

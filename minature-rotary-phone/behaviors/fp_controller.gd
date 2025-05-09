@@ -7,6 +7,11 @@ extends Node3D
 
 @export var sensitivity = 0.1
 @export var speed:float = 1.0
+@export var inBowl:bool
+@export var env:WorldEnvironment
+@export var Surface: Node3D
+var distance
+
 
 var controlling = true
 
@@ -31,11 +36,19 @@ func _input(event):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	pass # Replace with function body.
+	
 
 @export var can_move:bool = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if inBowl:
+		_depthCeck()
+		$FmodEventEmitter3D.set_parameter_by_id(-2825082069586755593,10)
+		print_debug()
+	else:
+		$FmodEventEmitter3D.set_parameter_by_id(-2825082069586755593,0)
+		
 
 	if can_move:
 		var v = Vector3.ZERO
@@ -62,3 +75,23 @@ func _process(delta):
 		var upanddown = Input.get_axis("move_up", "move_down")
 		if abs(upanddown) > 0:     
 			global_translate(- global_transform.basis.y * speed * upanddown * mult * delta)
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	#$FmodEventEmitter3D.play()
+	$FmodEventEmitter3D.play()
+	inBowl = true
+	
+	env.environment.volumetric_fog_density = 0.02
+	
+func _depthCeck()-> void:
+	#distance = global_position.distance_to(Surface.global_position)
+	distance = clampi(global_position.distance_to(Surface.global_position),0,20)
+	#print_debug(distance)
+
+func _on_area_3d_area_exited(area: Area3D) -> void:
+	#$FmodEventEmitter3D.stop()
+	$FmodEventEmitter3D.stop()
+	inBowl = false
+	env.environment.volumetric_fog_density = 0.0
+	

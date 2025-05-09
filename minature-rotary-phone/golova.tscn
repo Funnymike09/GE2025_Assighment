@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnsm7ymodp58r"]
+
+[ext_resource type="PackedScene" uid="uid://cx4et5v2p32lv" path="res://WhaleRoom_Mike/Golova.fbx" id="1_kylyi"]
+
+[node name="Golova" instance=ExtResource("1_kylyi")]
+
+[node name="Plane_001" parent="." index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 1.19192, 1.31139, -0.215663)

@@ -51,7 +51,7 @@ script = ExtResource("12")
 
 [node name="Player" parent="." instance=ExtResource("18_wop76")]
 
-[node name="Camera3D Controller" parent="Player/Camera3D" index="1" node_paths=PackedStringArray("boid_player", "boid")]
+[node name="Camera3D Controller" parent="Player/Camera3D" index="0" node_paths=PackedStringArray("boid_player", "boid")]
 boid_player = NodePath("../../../camera follower")
 boid = NodePath("../../../creature/boid")
 
@@ -149,10 +149,9 @@ path = NodePath("../../../Path3D")
 waypoint_seek_distance = 5
 weight = 3.0
 
-[node name="Seek" type="Node" parent="creature/boid"]
+[node name="Seek" type="Node" parent="creature/boid" node_paths=PackedStringArray("target")]
 script = ExtResource("17")
-draw_gizmos = false
-enabled = false
+target = NodePath("../../../Center")
 
 [node name="Arrive" type="Node" parent="creature/boid"]
 script = ExtResource("6")

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cx4et5v2p32lv"
-path="res://.godot/imported/Golova.fbx-09d0c7d2a162b54c9bc5365c5d46e46b.scn"
+uid="uid://b3ioueq2yi7yy"
+path="res://.godot/imported/Head.fbx-4c8d613aa8a833e9a8930408fa35a766.scn"
 
 [deps]
 
-source_file="res://WhaleRoom_Mike/Golova.fbx"
-dest_files=["res://.godot/imported/Golova.fbx-09d0c7d2a162b54c9bc5365c5d46e46b.scn"]
+source_file="res://WhaleRoom_Mike/Head.fbx"
+dest_files=["res://.godot/imported/Head.fbx-4c8d613aa8a833e9a8930408fa35a766.scn"]
 
 [params]
 
@@ -40,7 +40,7 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "save_to_file/enabled": true,
-"save_to_file/path": "Head"
+"save_to_file/path": "res://WhaleRoom_Mike/HeadMesh.res"
 }
 }
 }

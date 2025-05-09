@@ -19,6 +19,7 @@ draw_gizmos = false
 shape = SubResource("13")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.984159, -0.177291, 0, 0.177291, 0.984159, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("14")
 surface_material_override/0 = ExtResource("2_dmlrh")
 
